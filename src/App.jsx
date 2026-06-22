@@ -26,7 +26,6 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, useReducedMotion, AnimatePresence, useMotionValue, useTransform, useSpring, useMotionTemplate } from 'framer-motion'
-import SalesBar from './components/SalesBar'
 import './index.css'
 
 const img = (filename) => `${import.meta.env.BASE_URL}images/${filename}`
@@ -37,7 +36,9 @@ const PHONE = '0113410627'
 const waLink = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 
 const NAV_LINKS = [
+  { label: 'The Shop', href: '#shop' },
   { label: 'Services', href: '#services' },
+  { label: 'Workshop', href: '#workshop' },
   { label: 'Reviews', href: '#reviews' },
   { label: 'The Team', href: '#team' },
   { label: 'FAQ', href: '#faq' },
@@ -337,7 +338,7 @@ function Hero() {
           <FadeUp>
             <span className="inline-flex items-center gap-2 rounded-full border border-lime/40 bg-lime/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-lime">
               <IconStar className="size-4" />
-              4.9 / 5 from 115+ Google reviews &middot; authorised Trek dealer
+              4.9 / 5 from 115+ Google reviews &middot; Trek &amp; Scott dealer
             </span>
           </FadeUp>
           <FadeUp delay={0.08}>
@@ -362,9 +363,19 @@ function Hero() {
             </div>
           </FadeUp>
           <FadeUp delay={0.28}>
-            <p className="mt-7 text-sm uppercase tracking-[0.2em] text-white/45">
-              No. 6, Dunkeld West Shopping Centre &middot; 011 341 0627
-            </p>
+            <div className="mt-7 flex flex-col sm:flex-row sm:items-center gap-4">
+              <p className="text-sm uppercase tracking-[0.2em] text-white/45">
+                No. 6, Dunkeld West Shopping Centre &middot; 011 341 0627
+              </p>
+              <div className="flex items-center gap-3">
+                <a href="https://www.instagram.com/dunkeldcycles/" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram" className="flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full border border-white/30 text-white hover:text-lime hover:border-lime/50 transition-colors">
+                  <IconInstagram className="size-6" />
+                </a>
+                <a href="https://www.facebook.com/dunkeldcycles/" target="_blank" rel="noopener noreferrer" aria-label="Follow on Facebook" className="flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full border border-white/30 text-white hover:text-lime hover:border-lime/50 transition-colors">
+                  <IconFacebook className="size-6" />
+                </a>
+              </div>
+            </div>
           </FadeUp>
         </div>
 
@@ -392,8 +403,8 @@ function Hero() {
         </div>
 
         {/* Image — mobile (no 3D, stacks below text) */}
-        <div className="lg:hidden overflow-hidden rounded-xl shadow-[0_24px_48px_rgba(0,0,0,0.5)]">
-          <img src={img('entrance.jpg')} alt="Dunkeld Cycles shop entrance" className="w-full aspect-[16/9] object-cover" />
+        <div className="lg:hidden group overflow-hidden rounded-xl shadow-[0_24px_48px_rgba(0,0,0,0.5)]">
+          <img src={img('entrance.jpg')} alt="Dunkeld Cycles shop entrance" className="w-full aspect-[16/9] object-cover transition-transform duration-500 group-hover:scale-105" />
         </div>
       </div>
 
@@ -424,7 +435,76 @@ function FeaturedReview() {
               Book Your Bike In
             </PrimaryButton>
           </div>
+          <div className="mt-8 flex items-center justify-center gap-4">
+            <span className="text-sm uppercase tracking-[0.2em] text-white/40">Follow us</span>
+            <a href="https://www.instagram.com/dunkeldcycles/" target="_blank" rel="noopener noreferrer" aria-label="Follow Dunkeld Cycles on Instagram" className="group flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2.5 min-h-[44px] text-white/70 hover:text-lime hover:border-lime/40 transition-colors">
+              <IconInstagram className="size-6" />
+              <span className="font-display text-sm uppercase tracking-wider">Instagram</span>
+            </a>
+            <a href="https://www.facebook.com/dunkeldcycles/" target="_blank" rel="noopener noreferrer" aria-label="Follow Dunkeld Cycles on Facebook" className="group flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2.5 min-h-[44px] text-white/70 hover:text-lime hover:border-lime/40 transition-colors">
+              <IconFacebook className="size-6" />
+              <span className="font-display text-sm uppercase tracking-wider">Facebook</span>
+            </a>
+          </div>
         </FadeUp>
+      </div>
+    </section>
+  )
+}
+
+// ─── The Shop (Trek + Scott + Sourcing) ─────────────────────────────────────
+function TheShop() {
+  return (
+    <section id="shop" className="relative bg-navy py-16 sm:py-24">
+      <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-14 items-center">
+          <div>
+            <FadeUp>
+              <span className="font-display text-sm uppercase tracking-[0.3em] text-lime">The Shop</span>
+              <h2 className="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl font-bold uppercase leading-[1.02] text-white">
+                Authorised Trek &amp;<br />Scott dealer
+              </h2>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
+                Dunkeld Cycles has been Johannesburg's go-to bike shop since 2006. Twenty years of fitting riders to the right bike, giving honest advice, and building relationships that start with a first name.
+              </p>
+              <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/80">
+                Looking for something specific that is not on the floor? The team can source any brand of bicycle for you. Tell them what you ride and what you need, and they will make it happen.
+              </p>
+            </FadeUp>
+
+            <FadeUp delay={0.15}>
+              <p className="mt-6 text-base text-white/60">
+                From a child's first bike to a carbon race machine, every rider gets the same attention.
+              </p>
+              <div className="mt-5 flex flex-wrap items-center gap-8">
+                <img src={img('Trek_Logo.png')} alt="Trek" className="h-[100px] w-auto brightness-0 invert" />
+                <img src={img('scott-logo.png')} alt="Scott" className="h-[100px] w-auto brightness-0 invert" />
+              </div>
+              <div className="mt-4">
+                <PrimaryButton href={waLink("Hi Dunkeld Cycles, I'm looking for a bike — can you help?")}>
+                  Enquire About A Bike
+                </PrimaryButton>
+              </div>
+            </FadeUp>
+          </div>
+
+          <FadeUp delay={0.08}>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="group overflow-hidden rounded-2xl border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
+                <img src={img('trek.webp')} alt="Trek bikes on the shop floor" className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" />
+              </div>
+              <div className="group overflow-hidden rounded-2xl border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
+                <img src={img('scott.webp')} alt="Scott bikes on the shop floor" className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" />
+              </div>
+              <div className="group overflow-hidden rounded-2xl border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
+                <img src={img('bike-range.webp')} alt="Full bike range at Dunkeld Cycles" className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" />
+              </div>
+              <div className="group overflow-hidden rounded-2xl border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
+                <img src={img('kids.webp')} alt="Kids bikes at Dunkeld Cycles" className="w-full aspect-square object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+              </div>
+            </div>
+          </FadeUp>
+        </div>
       </div>
     </section>
   )
@@ -435,8 +515,8 @@ const SERVICES = [
   { n: '01', title: 'Basic Service', text: 'Gears tuned, brakes sharp, tyres checked. The regular once-over that keeps your bike honest between the bigger jobs.' },
   { n: '02', title: 'Full Service', text: 'Strip, clean, rebuild. Drivetrain, brakes, headset and bearings get the full treatment, so your bike comes home feeling new.' },
   { n: '03', title: 'Race Prep', text: 'Three days to race day? William has seen this exact panic before, and he knows exactly what your bike needs to get you to the start line.' },
-  { n: '04', title: 'Bike Fit', text: 'Your position, dialled in by people who ride the same roads and trails you do. Every kilometre should feel like it is supposed to.' },
-  { n: '05', title: 'New Bikes', text: 'Authorised Trek dealer, plus the accessories, apparel and gear to match. Walk in unsure, walk out on the right bike for you.' },
+  { n: '04', title: 'Bike Fit', text: 'Professional bike fitting powered by Cycle-It. Your position, dialled in so every kilometre feels like it is supposed to.', link: 'https://cycle-it.co.za', linkLabel: 'Book Now' },
+  { n: '05', title: 'New Bikes', text: 'Authorised Trek and Scott dealer, plus the accessories, apparel and gear to match. Walk in unsure, walk out on the right bike for you.' },
   { n: '06', title: 'Nutrition', text: 'Race-day fuel and everyday recovery, recommended by people who ride long days themselves and actually use what they sell.' },
 ]
 
@@ -481,6 +561,11 @@ function Services() {
                     <span className="font-display text-sm tracking-[0.25em] text-lime">{service.n}</span>
                     <h3 className="mt-3 font-display text-3xl uppercase tracking-wide text-white">{service.title}</h3>
                     <p className="mt-2 text-base sm:text-[17px] leading-relaxed text-white/70">{service.text}</p>
+                    {service.link && (
+                      <a href={service.link} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1.5 font-display text-sm uppercase tracking-wider text-lime hover:text-white transition-colors">
+                        {service.linkLabel || 'Learn more'} <IconArrow className="size-4" />
+                      </a>
+                    )}
                   </motion.div>
                 </SpotlightCard>
               </FadeUp>
@@ -493,6 +578,163 @@ function Services() {
             Book Your Bike In
           </PrimaryButton>
         </FadeUp>
+      </div>
+    </section>
+  )
+}
+
+// ─── Bike Fit / Cycle-It ────────────────────────────────────────────────────
+function BikeFit() {
+  return (
+    <section className="relative bg-[#111111] py-16 sm:py-24">
+      <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-14 items-center">
+          <FadeUp>
+            <span className="font-display text-sm uppercase tracking-[0.3em] text-lime">Bike Fitting</span>
+            <h2 className="mt-3 font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold uppercase leading-[1.02] text-white">
+              Your perfect position,<br />dialled in.
+            </h2>
+            <div className="mt-6 group overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_56px_rgba(0,0,0,0.45)]">
+              <img src={img('cycle-it.JPG')} alt="Professional bike fitting session at Dunkeld Cycles" className="w-full aspect-[1/1] object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={0.1}>
+            <p className="text-lg leading-relaxed text-white/80">
+              A proper bike fit changes everything. Less pain, more power, and the kind of comfort that lets you ride longer and harder. Dunkeld Cycles partners with Cycle-It to deliver professional bike fitting right here in the shop.
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-white/80">
+              Whether you have just bought a new bike or want to get more out of the one you ride, a fit session is the single best upgrade you can make.
+            </p>
+            <div className="mt-6 flex items-center gap-5">
+              <a href="https://cycle-it.co.za" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-lime px-7 py-4 min-h-[44px] font-display text-lg font-semibold uppercase tracking-wide text-[#102008] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_-8px_rgba(115,184,69,0.5)]">
+                <span className="absolute inset-x-0 top-0 h-px w-3/4 mx-auto bg-gradient-to-r from-transparent via-white/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true" />
+                <span className="relative flex items-center gap-2">
+                  Book A Fit
+                  <IconArrow className="size-5 transition-transform duration-200 group-hover:translate-x-1" />
+                </span>
+              </a>
+            </div>
+            <a href="https://cycle-it.co.za" target="_blank" rel="noopener noreferrer" className="mt-5 inline-block">
+              <img src={img('cycle-it-logo.png')} alt="Cycle-It" className="h-[100px] w-auto opacity-70 hover:opacity-100 transition-opacity" />
+            </a>
+          </FadeUp>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ─── Workshop ────────────────────────────────────────────────────────────────
+function Workshop() {
+  return (
+    <section id="workshop" className="relative bg-[#111111] py-16 sm:py-24" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 94%, 0 100%)' }}>
+      <div className="mx-auto max-w-[1180px] px-6 sm:px-8 pb-10">
+        <FadeUp>
+          <span className="font-display text-sm uppercase tracking-[0.3em] text-lime">The Workshop</span>
+          <h2 className="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl font-bold uppercase leading-[1.02] text-white">
+            Where the work gets done
+          </h2>
+          <p className="mt-4 max-w-xl text-lg text-white/75">
+            Tools on the wall, bikes on the stands, wheels hanging overhead. This is where every service starts and ends. The team works with their hands, not job numbers, and they will message you at every step so you know exactly what is happening.
+          </p>
+        </FadeUp>
+
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <FadeUp>
+            <div className="group overflow-hidden rounded-2xl border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
+              <img src={img('workshop1.webp')} alt="Mechanic working on a bike in the Dunkeld Cycles workshop" className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <div className="group overflow-hidden rounded-2xl border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
+              <img src={img('workshop2.webp')} alt="Workshop mechanic with a finished bike" className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+          </FadeUp>
+          <FadeUp delay={0.16}>
+            <div className="group overflow-hidden rounded-2xl border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
+              <img src={img('workshop3.webp')} alt="Hands-on bike service in progress" className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+          </FadeUp>
+        </div>
+
+        <FadeUp delay={0.1} className="mt-10 flex justify-center">
+          <PrimaryButton href={waLink("Hi Dunkeld Cycles, I'd like to book my bike in for a service.")}>
+            Book A Service
+          </PrimaryButton>
+        </FadeUp>
+      </div>
+    </section>
+  )
+}
+
+// ─── Gear & Accessories ─────────────────────────────────────────────────────
+function GearAccessories() {
+  const items = [
+    { src: 'gear.webp', alt: 'Helmets from leading brands', label: 'Helmets' },
+    { src: 'shoes.webp', alt: 'Cycling shoes from Lake, Specialized and more', label: 'Shoes' },
+    { src: 'accessories.webp', alt: 'Parts and accessories wall', label: 'Parts' },
+    { src: 'accessories2.webp', alt: 'Chain lubes, sealants and maintenance products', label: 'Maintenance' },
+    { src: 'accessories3.webp', alt: 'Bags, packs and cycling storage', label: 'Storage' },
+    { src: 'nutrition.webp', alt: 'Race-day nutrition and recovery products', label: 'Nutrition' },
+  ]
+
+  return (
+    <section className="relative bg-navy py-16 sm:py-24">
+      <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
+        <FadeUp>
+          <span className="font-display text-sm uppercase tracking-[0.3em] text-lime">Gear & Accessories</span>
+          <h2 className="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl font-bold uppercase leading-[1.02] text-white">
+            Everything under one roof
+          </h2>
+          <p className="mt-4 max-w-xl text-lg text-white/75">
+            Helmets, shoes, bags, chain lube, sealant, nutrition, race-day fuel and everything in between. If it goes on the bike or on the rider, it is here.
+          </p>
+        </FadeUp>
+
+        <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-3">
+          {items.map((item) => (
+            <motion.div key={item.label} variants={fadeUp}>
+              <div className="group overflow-hidden rounded-2xl border border-white/10">
+                <div className="relative">
+                  <img src={img(item.src)} alt={item.alt} className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <p className="absolute bottom-3 left-3 font-display text-base uppercase tracking-wider text-white">{item.label}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+// ─── Coffee Bar ─────────────────────────────────────────────────────────────
+function CoffeeBar() {
+  return (
+    <section className="relative bg-lime py-16 sm:py-24">
+      <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-14 items-center">
+          <FadeUp>
+            <div className="group overflow-hidden rounded-2xl border border-black/10 shadow-[0_24px_56px_rgba(0,0,0,0.25)]">
+              <img src={img('coffee1.webp')} alt="Fresh coffee being made at the Dunkeld Cycles coffee bar" className="w-full aspect-[1/1] object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={0.1}>
+            <span className="font-display text-sm uppercase tracking-[0.3em] text-[#102008]">The Coffee Bar</span>
+            <h2 className="mt-3 font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold uppercase leading-[1.02] text-[#102008]">
+              Grab a coffee.<br />Stay a while.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-[#102008]/80">
+              Drop your bike off, or just drop in. There is fresh coffee, space to sit, and the kind of conversations that only happen when riders get together.
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-[#102008]/80">
+              Swap ride stories, plan the next route, or just take a break from Jan Smuts. This is a bike shop with room to breathe.
+            </p>
+          </FadeUp>
+        </div>
       </div>
     </section>
   )
@@ -759,16 +1001,16 @@ const FAQS = [
     a: 'Booking ahead on WhatsApp gets you the best slot, especially in the weeks before 94.7 or Ironman 70.3. That said, William and the team are known for squeezing riders in before big race weekends. Message William directly: he has seen the three-days-to-race panic before and knows how to handle it.',
   },
   {
-    q: 'Do you service all bike brands, or only Trek?',
-    a: 'Dunkeld Cycles is an authorised Trek dealer, but the workshop services every brand and discipline: road, MTB, gravel, e-bike and triathlon machines all get the same level of care, whether they are carbon race bikes or a child\'s first ride.',
+    q: 'Do you service all bike brands, or only Trek and Scott?',
+    a: 'Dunkeld Cycles is an authorised Trek and Scott dealer, but the workshop services every brand and discipline: road, MTB, gravel, e-bike and triathlon machines all get the same level of care, whether they are carbon race bikes or a child\'s first ride.',
   },
   {
     q: 'What is included in a full service versus a basic tune-up?',
     a: 'A basic tune-up covers gear and brake adjustment, a safety check and a clean: ideal for keeping a regularly ridden bike honest between bigger services. A full service strips, inspects, cleans and rebuilds the drivetrain, brakes, headset and bearings, so the bike comes back feeling new. William will tell you straight which one your bike actually needs, not which one costs more.',
   },
   {
-    q: 'Is Dunkeld Cycles the nearest Trek dealer and bike shop to Sandton and Rosebank?',
-    a: 'Yes. Dunkeld Cycles is in Dunkeld West Shopping Centre on Jan Smuts Avenue, making it the closest authorised Trek dealer to Sandton, Rosebank, Hyde Park and the northern suburbs of Johannesburg. It is a short drive from the M1.',
+    q: 'Is Dunkeld Cycles the nearest Trek and Scott dealer to Sandton and Rosebank?',
+    a: 'Yes. Dunkeld Cycles is in Dunkeld West Shopping Centre on Jan Smuts Avenue, making it the closest authorised Trek and Scott dealer to Sandton, Rosebank, Hyde Park and the northern suburbs of Johannesburg. It is a short drive from the M1.',
   },
   {
     q: 'Do you service e-bikes and triathlon bikes?',
@@ -781,6 +1023,18 @@ const FAQS = [
   {
     q: 'Can I get a same-day service before the 94.7 Cycle Challenge or Ironman 70.3?',
     a: 'Yes. Dunkeld Cycles offers same-day race-prep services for riders in the lead-up to major events. Book your slot on WhatsApp or call 011 341 0627 as early in the week as possible for the best availability before race weekend.',
+  },
+  {
+    q: 'Do you have kids\' bikes?',
+    a: 'Yes. Dunkeld Cycles stocks a range of kids\' bikes from first-timers to junior riders. The team gives a child\'s first bike the same care and attention as any race machine, and they will help you find the right size and fit for your little one.',
+  },
+  {
+    q: 'Is there somewhere to wait while my bike is being serviced?',
+    a: 'Yes. Dunkeld Cycles has an in-store coffee bar where you can grab a fresh coffee and hang out while the team works on your bike. It is a space to sit, chat, swap ride stories and take a break. You will get WhatsApp updates at every step of the service, so you always know what is happening.',
+  },
+  {
+    q: 'Can Dunkeld Cycles source a bike brand that is not in the shop?',
+    a: 'Yes. While Dunkeld Cycles is an authorised Trek and Scott dealer, the team can source any brand of bicycle for you. Tell them what you are looking for and they will make it happen.',
   },
 ]
 
@@ -856,20 +1110,21 @@ function Footer() {
           <div>
             <img src={img('logo-main.png')} alt="Dunkeld Cycles logo" className="h-[60px] w-auto" />
             <p className="mt-4 max-w-xs text-base leading-relaxed text-white/65">
-              Johannesburg's most personal independent bike shop. Trek dealer, full-service workshop, first names always.
+              Johannesburg's most personal independent bike shop. Trek and Scott dealer, full-service workshop, first names always.
             </p>
             <div className="mt-4 flex items-center gap-1.5 text-lime" aria-label="4.9 star Google rating">
               {Array.from({ length: 5 }).map((_, i) => <IconStar key={i} className="size-4" />)}
               <span className="ml-1 text-sm text-white/70">4.9 &middot; 115+ reviews</span>
             </div>
             <div className="mt-4 flex items-center gap-3">
-              <a href="https://www.instagram.com/dunkeldcycles/" target="_blank" rel="noopener noreferrer" aria-label="Dunkeld Cycles on Instagram" className="flex items-center justify-center min-h-[40px] min-w-[40px] rounded-full border border-white/15 text-white/65 hover:text-lime hover:border-lime/50 transition-colors">
-                <IconInstagram className="size-5" />
+              <a href="https://www.instagram.com/dunkeldcycles/" target="_blank" rel="noopener noreferrer" aria-label="Dunkeld Cycles on Instagram" className="flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full border border-white/20 text-white/70 hover:text-lime hover:border-lime/50 transition-colors">
+                <IconInstagram className="size-7" />
               </a>
-              <a href="https://www.facebook.com/dunkeldcycles/" target="_blank" rel="noopener noreferrer" aria-label="Dunkeld Cycles on Facebook" className="flex items-center justify-center min-h-[40px] min-w-[40px] rounded-full border border-white/15 text-white/65 hover:text-lime hover:border-lime/50 transition-colors">
-                <IconFacebook className="size-5" />
+              <a href="https://www.facebook.com/dunkeldcycles/" target="_blank" rel="noopener noreferrer" aria-label="Dunkeld Cycles on Facebook" className="flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full border border-white/20 text-white/70 hover:text-lime hover:border-lime/50 transition-colors">
+                <IconFacebook className="size-7" />
               </a>
             </div>
+            <img src={img('Stamp2.png')} alt="Jozi's Authentic Bike Shop, established 2006" className="mt-5 h-[80px] w-auto" />
           </div>
         </div>
 
@@ -891,18 +1146,22 @@ function Footer() {
 // ─── App ─────────────────────────────────────────────────────────────────────
 function App() {
   return (
-    <div className="pb-24 bg-[#111111]">
+    <div className="bg-[#111111]">
       <Nav />
       <Hero />
       <FeaturedReview />
+      <TheShop />
       <Services />
+      <BikeFit />
+      <Workshop />
+      <GearAccessories />
+      <CoffeeBar />
       <SocialProof />
       <Team />
       <EmailCapture />
       <Contact />
       <Faq />
       <Footer />
-      <SalesBar />
     </div>
   )
 }
