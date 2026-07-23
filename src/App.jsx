@@ -536,8 +536,7 @@ function AboutUs() {
                 specifically needs — no cookie-cutter service, no shortcuts.
               </p>
               <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/80">
-                Fancy a ride? Join the Friday morning shop ride, open to all riders, no drop.
-                {/* TODO: confirm exact meeting time/point with William before publishing */}
+                Fancy a ride? Join the Friday morning club ride, 5am from the shop, open to all riders, no drop.
               </p>
             </FadeUp>
           </div>
@@ -783,8 +782,7 @@ function OurBrands() {
           <div className="mt-10 flex flex-wrap items-center gap-x-12 gap-y-8">
             <img src={img('Trek_Logo.png')} alt="Trek" className="h-[90px] w-auto brightness-0 invert" />
             <img src={img('scott-logo.png')} alt="Scott" className="h-[90px] w-auto brightness-0 invert" />
-            {/* TODO: add Rapha logo asset once supplied by client */}
-            <span className="font-display text-2xl uppercase tracking-wide text-white/50">Rapha</span>
+            <img src={img('rapha-logo.png')} alt="Rapha" className="h-[60px] w-auto" />
           </div>
         </FadeUp>
 
@@ -1093,9 +1091,6 @@ const MAPS_EMBED_SRC = 'https://www.google.com/maps?q=' +
   encodeURIComponent('Dunkeld West Shopping Centre, Jan Smuts Ave, Dunkeld West, Randburg, 2190') +
   '&output=embed'
 
-// TODO: current opening hours are per the client's correction (07:30–17:00 weekdays).
-// Saturday hours and public holiday hours were not corrected in the change log —
-// confirm both with the client before this goes live.
 function Contact() {
   return (
     <section id="contact" className="relative bg-navy py-16 sm:py-24">
@@ -1135,6 +1130,9 @@ function Contact() {
                     Monday to Friday: 07:30 &ndash; 17:00<br />
                     Saturday: 09:00 &ndash; 13:00<br />
                     Sunday: Closed
+                  </p>
+                  <p className="mt-2 text-sm text-white/50">
+                    Public holidays: as advertised on our social media.
                   </p>
                 </div>
               </div>
