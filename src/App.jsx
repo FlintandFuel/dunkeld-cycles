@@ -345,7 +345,7 @@ function Hero() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <h1 className="mt-5 font-display text-5xl sm:text-6xl lg:text-[4.2rem] xl:text-6xl font-bold uppercase leading-[0.98] tracking-tight text-white">
-              From first rides to race day,<br />we've got your bike covered.
+              From first rides to race day, we've got your bike covered.
             </h1>
           </FadeUp>
           <FadeUp delay={0.15}>
@@ -682,7 +682,7 @@ function BikeFit() {
               Whether you have just bought a new bike or want to get more out of the one you ride, a fit session is often the best upgrade you can make.
             </p>
             <div className="mt-6 flex items-center gap-5">
-              <a href="https://cycleit.co.za/" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-lime px-7 py-4 min-h-[44px] font-display text-lg font-semibold uppercase tracking-wide text-[#102008] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_-8px_rgba(115,184,69,0.5)]">
+              <a href="https://cycleit.co.za/" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[#FF9B19] px-7 py-4 min-h-[44px] font-display text-lg font-semibold uppercase tracking-wide text-[#102008] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_-8px_rgba(255,155,25,0.5)]">
                 <span className="absolute inset-x-0 top-0 h-px w-3/4 mx-auto bg-gradient-to-r from-transparent via-white/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true" />
                 <span className="relative flex items-center gap-2">
                   Book A Fit
