@@ -36,6 +36,7 @@ const img = (filename) => `${import.meta.env.BASE_URL}images/${filename}`
 // Placeholder WhatsApp number — replace with Dunkeld Cycles' real number before launch
 const WHATSAPP_NUMBER = '27000000000'
 const PHONE = '0113410627'
+const HUBTIGER_BOOKING_URL = 'https://bookings.hubtiger.com/bikes?shop=HUB.96D2C6B5A5484DDAAF1BE5618670D0AA60E5EE7213C748BEAF249FFF49BB704F.TIGER&lang=en'
 const waLink = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 
 const NAV_LINKS = [
@@ -265,7 +266,7 @@ function Nav() {
             </a>
           ))}
           <a
-            href={waLink("Hi Dunkeld Cycles, I'd like to book my bike in.")}
+            href={HUBTIGER_BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-full bg-lime px-5 py-2.5 min-h-[40px] font-display text-sm font-semibold uppercase tracking-wide text-[#102008] transition-transform duration-200 hover:-translate-y-0.5"
@@ -293,7 +294,7 @@ function Nav() {
               {NAV_LINKS.map((link) => (
                 <a key={link.label} href={link.href} onClick={() => setOpen(false)} className="font-display text-4xl uppercase tracking-wide text-white hover:text-lime transition-colors">{link.label}</a>
               ))}
-              <a href={waLink("Hi Dunkeld Cycles, I'd like to book my bike in.")} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="mt-4 inline-flex items-center justify-center min-h-[44px] rounded-full bg-lime px-8 py-4 font-display text-xl font-semibold uppercase tracking-wide text-[#102008]">
+              <a href={HUBTIGER_BOOKING_URL} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="mt-4 inline-flex items-center justify-center min-h-[44px] rounded-full bg-lime px-8 py-4 font-display text-xl font-semibold uppercase tracking-wide text-[#102008]">
                 Book Your Bike In
               </a>
             </div>
@@ -356,7 +357,7 @@ function Hero() {
           </FadeUp>
           <FadeUp delay={0.22}>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <PrimaryButton href={waLink("Hi Dunkeld Cycles, I'd like to book my bike in for a service.")}>
+              <PrimaryButton href={HUBTIGER_BOOKING_URL}>
                 Book a Service
               </PrimaryButton>
               <SecondaryButton href={`tel:${PHONE}`} icon={IconPhone} external={false}>
@@ -433,7 +434,7 @@ function FeaturedReview() {
           </blockquote>
           <p className="mt-4 text-base text-white/55">Nasr Gie &mdash; Google Review</p>
           <div className="mt-8">
-            <PrimaryButton href={waLink("Hi Dunkeld Cycles, I'd like to book my bike in for a service.")}>
+            <PrimaryButton href={HUBTIGER_BOOKING_URL}>
               Book Your Bike In
             </PrimaryButton>
           </div>
@@ -652,7 +653,7 @@ function Workshop() {
         </FadeUp>
 
         <FadeUp delay={0.15} className="mt-10 flex justify-center">
-          <PrimaryButton href={waLink("Hi Dunkeld Cycles, I'd like to book my bike in for a service.")}>
+          <PrimaryButton href={HUBTIGER_BOOKING_URL}>
             Book Your Bike In
           </PrimaryButton>
         </FadeUp>
@@ -866,7 +867,7 @@ function HowItWorks() {
         </motion.div>
 
         <FadeUp delay={0.1} className="mt-10 flex justify-center">
-          <PrimaryButton href={waLink("Hi Dunkeld Cycles, I'd like to book my bike in for a service.")}>
+          <PrimaryButton href={HUBTIGER_BOOKING_URL}>
             Ready To Get Back On Your Bike? Book A Service
           </PrimaryButton>
         </FadeUp>
