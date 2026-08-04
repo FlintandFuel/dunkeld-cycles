@@ -392,7 +392,7 @@ function Hero() {
             className="relative overflow-hidden rounded-2xl shadow-[0_48px_96px_-24px_rgba(0,0,0,0.75)]"
           >
             <img
-              src={img('entrance.jpg')}
+              src={img('hero1.webp')}
               alt="Dunkeld Cycles shop entrance on Jan Smuts Avenue, Dunkeld West"
               className="w-full aspect-[4/3] object-cover block"
               draggable={false}
@@ -406,7 +406,7 @@ function Hero() {
 
         {/* Image — mobile (no 3D, stacks below text) */}
         <div className="lg:hidden group overflow-hidden rounded-xl shadow-[0_24px_48px_rgba(0,0,0,0.5)]">
-          <img src={img('entrance.jpg')} alt="Dunkeld Cycles shop entrance" className="w-full aspect-[16/9] object-cover transition-transform duration-500 group-hover:scale-105" />
+          <img src={img('hero1.webp')} alt="Dunkeld Cycles shop entrance" className="w-full aspect-[16/9] object-cover transition-transform duration-500 group-hover:scale-105" />
         </div>
       </div>
 
@@ -484,16 +484,16 @@ function AboutUs() {
           <FadeUp delay={0.08}>
             <div className="grid grid-cols-2 gap-3">
               <div className="group overflow-hidden rounded-2xl border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
-                <img src={img('trek.webp')} alt="Trek bikes on the shop floor" className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={img('about-trek2.webp')} alt="Trek bikes on the shop floor" className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="group overflow-hidden rounded-2xl border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
-                <img src={img('scott.webp')} alt="Scott bikes on the shop floor" className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={img('about-scott1.webp')} alt="Scott bikes on the shop floor" className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="group overflow-hidden rounded-2xl border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
-                <img src={img('bike-range.webp')} alt="Full bike range at Dunkeld Cycles" className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={img('about3.webp')} alt="Full bike range at Dunkeld Cycles" className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="group overflow-hidden rounded-2xl border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
-                <img src={img('kids.webp')} alt="Kids bikes at Dunkeld Cycles" className="w-full aspect-square object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+                <img src={img('about4.webp')} alt="Kids bikes at Dunkeld Cycles" className="w-full aspect-square object-cover object-center transition-transform duration-500 group-hover:scale-105" />
               </div>
             </div>
           </FadeUp>
@@ -563,7 +563,10 @@ const SERVICE_CATEGORIES = [
   },
   {
     title: 'Transport & Travel',
-    items: ['Bike Boxing: for travelling with or shipping a bike (race travel, relocations and more)'],
+    items: [
+      'Bike Boxing: for travelling with or shipping a bike (race travel, relocations and more)',
+      'Courier Service: local collection and delivery of your bike',
+    ],
   },
 ]
 
@@ -596,7 +599,7 @@ function Workshop() {
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div className="overflow-hidden rounded-xl border border-white/10">
-                <img src={img('workshop1.webp')} alt="Mechanic working on a bike in the Dunkeld Cycles workshop" className="w-full aspect-square object-cover" />
+                <img src={img('what-we-do1.webp')} alt="Mechanic working on a bike in the Dunkeld Cycles workshop" className="w-full aspect-square object-cover" />
               </div>
               <div className="overflow-hidden rounded-xl border border-white/10">
                 <img src={img('workshop2.webp')} alt="Workshop mechanic with a finished bike" className="w-full aspect-square object-cover" />
@@ -676,7 +679,7 @@ function BikeFit() {
 
           <FadeUp delay={0.1}>
             <p className="text-lg leading-relaxed text-white/80">
-              A proper bike fit changes everything. Less pain, more power, and the kind of comfort that lets you ride longer and harder. Dunkeld Cycles partners with <a href="https://cycleit.co.za/" target="_blank" rel="noopener noreferrer" className="underline hover:text-lime transition-colors">Cycle-It</a> to deliver professional bike fitting right here in the shop.
+              A proper bike fit changes everything. Less pain, more power, and the kind of comfort that lets you ride longer and harder. Dunkeld Cycles partners with <a href="https://cycleit.co.za/" target="_blank" rel="noopener noreferrer" className="underline hover:text-lime transition-colors">Cycle-It Service and Fitting</a> to deliver professional bike fitting right here in the shop.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-white/80">
               Whether you have just bought a new bike or want to get more out of the one you ride, a fit session is often the best upgrade you can make.
@@ -705,12 +708,13 @@ function GearAccessories() {
   const items = [
     { src: 'gear.webp', alt: 'Helmets from leading brands', label: 'Helmets' },
     { src: 'shoes.webp', alt: 'Cycling shoes from Lake, Specialized and more', label: 'Shoes' },
-    { src: 'accessories.webp', alt: 'Parts and accessories wall', label: 'Parts' },
+    { src: 'parts1.webp', alt: 'Parts and accessories wall', label: 'Parts' },
     { src: 'accessories2.webp', alt: 'Chain lubes, sealants and maintenance products', label: 'Maintenance' },
     { src: 'accessories3.webp', alt: 'Bags, packs and cycling storage', label: 'Storage' },
     { src: 'nutrition.webp', alt: 'Race-day nutrition and recovery products', label: 'Nutrition' },
-    { src: 'range2.webp', alt: 'Bike racks for car and home', label: 'Bike Racks' },
-    { src: 'range3.webp', alt: 'Cycling clothing and apparel', label: 'Clothing' },
+    { src: 'bike-racks1.webp', alt: 'Bike racks for car and home', label: 'Bike Racks' },
+    { src: 'clothing1.webp', alt: 'Cycling clothing and apparel', label: 'Clothing' },
+    { src: 'gear1-kids-bikes.webp', alt: 'Kids bikes and accessories', label: 'Kids Bikes' },
   ]
 
   return (
@@ -892,7 +896,7 @@ function CoffeeBar() {
               Drop your bike off, or just drop in. Grab a coffee at the counter, find a seat, and enjoy the kind of conversations that only happen when riders get together.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-[#102008]/80">
-              We're a bike shop with a proper coffee corner, not a café in our own right, so swap ride stories, plan the next route, or just take a break from Jan Smuts.
+              We're a bike shop with a quiet coffee corner, not a busy coffee shop, so swap ride stories, plan the next route, or just take a break from Jan Smuts.
             </p>
           </FadeUp>
         </div>
@@ -911,12 +915,10 @@ const TESTIMONIALS = [
   {
     quote: 'William goes above and beyond to keep customers happy. Attention all cyclists: do yourself a favour and treat your bike to a service at Dunkeld Cycles.',
     name: 'Elze-Mari Kruger',
-    context: 'Unprompted brand advocacy, posted to Google Reviews',
   },
   {
     quote: 'Brilliant service. Walked in on a Thursday stressed about my bike, walked out on Friday with everything sorted, and a clear explanation of every single thing they had done.',
     name: 'Jonathan Faber',
-    context: 'Pre-race service, reviewed on Google',
   },
 ]
 
@@ -945,7 +947,7 @@ function SocialProof() {
                     {Array.from({ length: 5 }).map((_, i) => <IconStar key={i} className="size-4" />)}
                   </div>
                   <p className="mt-2 font-display text-xl uppercase tracking-wide text-white">{item.name}</p>
-                  <p className="mt-1 text-sm text-white/50">{item.context}</p>
+                  {item.context && <p className="mt-1 text-sm text-white/50">{item.context}</p>}
                 </div>
               </SpotlightCard>
             </motion.div>
@@ -971,22 +973,27 @@ function SocialProof() {
 }
 
 // ─── The Team Behind The 5-Star Reviews ─────────────────────────────────────
-// TODO: broaden further once the client supplies photos/bios for the wider crew —
-// for now the visual focus stays on William, with the copy speaking to the team.
 function Team() {
   return (
     <section id="team" className="relative bg-navy py-16 sm:py-24">
       <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
-          <FadeUp>
-            <div className="overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_48px_rgba(0,0,0,0.4)] sm:max-w-[50%] sm:mx-auto lg:max-w-none lg:mx-0">
-              <img
-                src={img('william2.webp')}
-                alt="The Dunkeld Cycles workshop team"
-                className="w-full aspect-[4/5] object-cover object-top"
-              />
-            </div>
-          </FadeUp>
+          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="grid grid-cols-2 gap-3 sm:max-w-[70%] sm:mx-auto lg:max-w-none lg:mx-0">
+            {[
+              { src: 'team1.webp', alt: 'A member of the Dunkeld Cycles workshop team' },
+              { src: 'team2.webp', alt: 'A member of the Dunkeld Cycles workshop team' },
+              { src: 'team3.webp', alt: 'A member of the Dunkeld Cycles workshop team' },
+              { src: 'team4.webp', alt: 'A member of the Dunkeld Cycles workshop team' },
+            ].map((member) => (
+              <motion.div key={member.src} variants={fadeUp} className="overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_48px_rgba(0,0,0,0.4)]">
+                <img
+                  src={img(member.src)}
+                  alt={member.alt}
+                  className="w-full aspect-[4/5] object-cover object-top"
+                />
+              </motion.div>
+            ))}
+          </motion.div>
 
           <div>
             <FadeUp delay={0.08}>
@@ -996,16 +1003,11 @@ function Team() {
               </h2>
               <div className="mt-5 space-y-4 text-lg leading-relaxed text-white/80">
                 <p>
-                  Behind every 5-star review is a crew of mechanics and riders, not just one name on the door. Each one brings their own experience to the workbench, and gets to know your bike and how you ride it.
+                  Behind every 5-star review is a crew of expert mechanics, not just one name on the door. Each one brings their own experience to the workbench, and gets to know your bike and how you ride it.
                 </p>
                 <p>
                   Whoever's hands your bike is in, you'll get a first name, a straight answer, and a WhatsApp update mid-service, so you always know exactly what is happening and why.
                 </p>
-              </div>
-              <div className="mt-7">
-                <SecondaryButton href={waLink('Hi Dunkeld Cycles, I had a question for you and the team.')}>
-                  Say hello to the team
-                </SecondaryButton>
               </div>
             </FadeUp>
           </div>
@@ -1085,7 +1087,7 @@ function Contact() {
             Bring your bike in. We'll take it from here.
           </h2>
           <p className="mt-4 max-w-xl text-lg text-white/75">
-            Dunkeld West Shopping Centre, corner of Bompas and Jan Smuts. Message William directly, call us, or drop in during opening hours. Proudly serving Dunkeld, Rosebank, Sandton, Randburg, Parkhurst and Bryanston.
+            Dunkeld West Shopping Centre, corner of Bompas and Jan Smuts. Parking at the back. Message William directly, call us, or drop in during opening hours. Proudly serving Dunkeld, Rosebank, Sandton, Randburg, Parkhurst and Bryanston.
           </p>
         </FadeUp>
 
@@ -1180,11 +1182,7 @@ const FAQS = [
   },
   {
     q: 'How much does a bike service cost?',
-    a: 'Pricing depends on the service type and parts required. The team will give you an honest assessment of what your bike actually needs before any work starts, and they will never recommend something it does not. Call 011 341 0627 or WhatsApp for a quote.',
-  },
-  {
-    q: 'Can I get a same-day service before the 94.7 Cycle Challenge or Ironman 70.3?',
-    a: 'Yes. Dunkeld Cycles offers same-day race-prep services for riders in the lead-up to major events. Book your slot on WhatsApp or call 011 341 0627 as early in the week as possible for the best availability before race weekend.',
+    a: <>Pricing depends on the service type and parts required. The team will give you an honest assessment of what your bike actually needs before any work starts, and they will never recommend something it does not. Call <a href={`tel:${PHONE}`} className="underline hover:text-lime transition-colors">011 341 0627</a> or WhatsApp for a quote.</>,
   },
   {
     q: 'Is there on-site parking?',
