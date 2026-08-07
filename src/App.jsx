@@ -405,10 +405,6 @@ function Hero() {
           </motion.div>
         </div>
 
-        {/* Image — mobile (no 3D, stacks below text) */}
-        <div className="lg:hidden group overflow-hidden rounded-xl shadow-[0_24px_48px_rgba(0,0,0,0.5)]">
-          <img src={img('hero1.webp')} alt="Dunkeld Cycles shop entrance" className="w-full aspect-[16/9] object-cover transition-transform duration-500 group-hover:scale-105" />
-        </div>
       </div>
 
       <motion.div animate={reduced ? {} : { y: [0, 7, 0] }} transition={reduced ? {} : { duration: 2.2, repeat: Infinity, ease: 'easeInOut' }} className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 text-white/35" aria-hidden="true">
@@ -424,6 +420,10 @@ function FeaturedReview() {
   return (
     <section className="bg-[#111111] py-14 sm:py-16 border-y border-white/10">
       <div className="mx-auto max-w-[860px] px-6 sm:px-8 text-center">
+        {/* Entrance shot, mobile only — bridges the hero image and the testimonial so the page flows on smaller screens */}
+        <div className="lg:hidden mb-8 -mt-2 overflow-hidden rounded-xl shadow-[0_24px_48px_rgba(0,0,0,0.5)]">
+          <img src={img('hero1.webp')} alt="Dunkeld Cycles shop entrance" className="w-full aspect-[16/9] object-cover" />
+        </div>
         <FadeUp>
           <div className="flex items-center justify-center gap-1.5 text-lime mb-5" aria-label="Five star Google review">
             {Array.from({ length: 5 }).map((_, i) => <IconStar key={i} className="size-5" />)}
@@ -457,7 +457,7 @@ function AboutUs() {
                 Built on relationships,<br />not just repairs
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
-                Dunkeld Cycles has been Johannesburg's go-to bike shop for close to twenty years:
+                Dunkeld Cycles has been Johannesburg's go-to bike shop for more than twenty years:
                 fitting riders to the right bike, giving honest advice, and building relationships
                 that start with a first name. We're an authorised Trek and Scott dealer for new
                 bikes, but the workshop services every brand that rolls through the door, from a
@@ -517,8 +517,16 @@ function AboutUs() {
               <span className="font-display text-sm uppercase tracking-[0.3em] text-lime">A Note From William</span>
               <p className="mt-5 rounded-xl border-l-4 border-lime bg-white/5 px-6 py-5 font-display text-xl sm:text-2xl leading-snug text-white">
                 "I've spent close to twenty years getting Johannesburg riders back on the road,
-                from first-time commuters to Ironman racers, mom, dad and the kids and everyone's
-                Sunday-morning kids. Come say hi. We'll look after your bike like it's our own."
+                from first-time commuters to racing snakes. Come say hi. We'll look after your
+                bike like it's our own."
+              </p>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
+                William has been riding competitively since a very young age, building a
+                successful career as a professional road and track cyclist. After an injury forced
+                him to retire from racing, he channelled his lifelong passion for cycling into
+                helping others. Today, he combines his extensive experience and technical expertise
+                to provide exceptional bike servicing and support, ensuring every rider and every
+                bike performs at its best.
               </p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
                 The team is hands-on, committed, and goes out of their way for whatever your bike
@@ -648,7 +656,11 @@ function Workshop() {
             <p className="text-base text-white/75">Pickup &amp; delivery available (cost applies).</p>
           </div>
           <div className="rounded-xl border border-white/10 bg-white/5 px-5 py-4">
-            <p className="text-base text-white/75">Also on offer: trainer service with Ruan, and trade-in facilitation.</p>
+            <p className="text-base text-white/75">
+              Also on offer: trainer service with{' '}
+              <a href="tel:+27825697634" className="underline underline-offset-2 text-white hover:text-lime transition-colors">Ruan</a>
+              , and trade-in facilitation.
+            </p>
           </div>
         </FadeUp>
 
@@ -794,10 +806,9 @@ function OurBrands() {
 const WHY_CHOOSE_US = [
   'Qualified, experienced mechanics',
   'Honest advice, no unnecessary repairs',
-  'Fast, same-day turnaround',
   'Premium brands, every discipline serviced',
   'Personal service, first names always',
-  'Family-owned and run since 2006',
+  'Cycling & servicing since 2006',
 ]
 
 function WhyChooseUs() {
@@ -1007,7 +1018,7 @@ function Team() {
                   Behind every 5-star review is a crew of expert mechanics, not just one name on the door. Each one brings their own experience to the workbench, and gets to know your bike and how you ride it.
                 </p>
                 <p>
-                  Whoever's hands your bike is in, you'll get a first name, a straight answer, and a WhatsApp update mid-service, so you always know exactly what is happening and why.
+                  Whoever's hands your bike is in, you'll get a first name and a straight answer. And personalised updates during your service, so you always know exactly what is happening and why.
                 </p>
               </div>
             </FadeUp>
@@ -1088,7 +1099,7 @@ function Contact() {
             Bring your bike in. We'll take it from here.
           </h2>
           <p className="mt-4 max-w-xl text-lg text-white/75">
-            Dunkeld West Shopping Centre, corner of Bompas and Jan Smuts. Parking at the back. Message William directly, call us, or drop in during opening hours. Proudly serving Dunkeld, Rosebank, Sandton, Randburg, Parkhurst and Bryanston.
+            Dunkeld West Shopping Centre, corner of Bompas and Jan Smuts. Parking at the back. Message William directly, call us, or drop in during opening hours. Proudly serving Dunkeld, Rosebank, Sandton, Randburg, Parkhurst, Bryanston and surrounding areas.
           </p>
         </FadeUp>
 
