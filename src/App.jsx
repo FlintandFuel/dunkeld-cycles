@@ -394,7 +394,7 @@ function Hero() {
           >
             <img
               src={img('hero1.webp')}
-              alt="Dunkeld Cycles shop entrance on Jan Smuts Avenue, Dunkeld West"
+              alt="Dunkeld Cycles bike shop interior"
               className="w-full aspect-[4/3] object-cover block"
               draggable={false}
             />
@@ -420,9 +420,9 @@ function FeaturedReview() {
   return (
     <section className="bg-[#111111] py-14 sm:py-16 border-y border-white/10">
       <div className="mx-auto max-w-[860px] px-6 sm:px-8 text-center">
-        {/* Entrance shot, mobile only — bridges the hero image and the testimonial so the page flows on smaller screens */}
-        <div className="lg:hidden mb-8 -mt-2 overflow-hidden rounded-xl shadow-[0_24px_48px_rgba(0,0,0,0.5)]">
-          <img src={img('hero1.webp')} alt="Dunkeld Cycles shop entrance" className="w-full aspect-[16/9] object-cover" />
+        {/* Entrance shot — pairs with the hero's interior shot so prospects see both inside and outside before the testimonial */}
+        <div className="mb-8 -mt-2 overflow-hidden rounded-xl shadow-[0_24px_48px_rgba(0,0,0,0.5)]">
+          <img src={img('entrance1.webp')} alt="Dunkeld Cycles shop entrance" className="w-full aspect-[16/9] object-cover" />
         </div>
         <FadeUp>
           <div className="flex items-center justify-center gap-1.5 text-lime mb-5" aria-label="Five star Google review">
