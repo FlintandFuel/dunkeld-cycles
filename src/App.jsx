@@ -417,6 +417,10 @@ function FeaturedReview() {
   return (
     <section className="bg-[#111111] py-14 sm:py-16 border-y border-white/10">
       <div className="mx-auto max-w-[860px] px-6 sm:px-8 text-center">
+        {/* Entrance shot — pairs with the hero's interior shot so prospects see both inside and outside before the testimonial */}
+        <div className="mb-8 -mt-2 overflow-hidden rounded-xl shadow-[0_24px_48px_rgba(0,0,0,0.5)]">
+          <img src={img('entrance1.webp')} alt="Dunkeld Cycles shop entrance" className="w-full aspect-[16/9] object-cover" />
+        </div>
         <FadeUp>
           <div className="flex items-center justify-center gap-1.5 text-lime mb-5" aria-label="Five star Google review">
             {Array.from({ length: 5 }).map((_, i) => <IconStar key={i} className="size-5" />)}
