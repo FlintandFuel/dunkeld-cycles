@@ -6,11 +6,11 @@
  * committed team. Dark editorial aesthetic breaks entirely from the
  * white-background LBS norm.
  *
- * Top trust signals: 4.8 rating from 115+ named Google reviews, authorised
+ * Top trust signals: 4.8 rating from 117+ named Google reviews, authorised
  * Trek & Scott dealer (while servicing every brand), 20 years trading,
  * SMS/WhatsApp updates at every step of a service.
  *
- * Note: review count is kept qualitative ("115+ reviews") rather than citing
+ * Note: review count is kept qualitative ("117+ reviews") rather than citing
  * small specific numbers (e.g. "14 reviews"), which read as underwhelming.
  *
  * Primary CTA rationale: "Book a Service" via WhatsApp — mirrors how William
@@ -33,9 +33,9 @@ import './index.css'
 
 const img = (filename) => `${import.meta.env.BASE_URL}images/${filename}`
 
-// Placeholder WhatsApp number — replace with Dunkeld Cycles' real number before launch
-const WHATSAPP_NUMBER = '27000000000'
+const WHATSAPP_NUMBER = '27810186912'
 const PHONE = '0113410627'
+const HUBTIGER_BOOKING_URL = 'https://bookings.hubtiger.com/bikes?shop=HUB.96D2C6B5A5484DDAAF1BE5618670D0AA60E5EE7213C748BEAF249FFF49BB704F.TIGER&lang=en'
 const waLink = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 
 const NAV_LINKS = [
@@ -265,7 +265,7 @@ function Nav() {
             </a>
           ))}
           <a
-            href={waLink("Hi Dunkeld Cycles, I'd like to book my bike in.")}
+            href={HUBTIGER_BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-full bg-lime px-5 py-2.5 min-h-[40px] font-display text-sm font-semibold uppercase tracking-wide text-[#102008] transition-transform duration-200 hover:-translate-y-0.5"
@@ -293,7 +293,7 @@ function Nav() {
               {NAV_LINKS.map((link) => (
                 <a key={link.label} href={link.href} onClick={() => setOpen(false)} className="font-display text-4xl uppercase tracking-wide text-white hover:text-lime transition-colors">{link.label}</a>
               ))}
-              <a href={waLink("Hi Dunkeld Cycles, I'd like to book my bike in.")} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="mt-4 inline-flex items-center justify-center min-h-[44px] rounded-full bg-lime px-8 py-4 font-display text-xl font-semibold uppercase tracking-wide text-[#102008]">
+              <a href={HUBTIGER_BOOKING_URL} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="mt-4 inline-flex items-center justify-center min-h-[44px] rounded-full bg-lime px-8 py-4 font-display text-xl font-semibold uppercase tracking-wide text-[#102008]">
                 Book Your Bike In
               </a>
             </div>
@@ -338,25 +338,19 @@ function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 py-16 sm:px-8 lg:py-24 grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-10 lg:gap-14 items-center">
         <div>
           <FadeUp>
-            <span className="inline-flex items-center gap-2 rounded-full border border-lime/40 bg-lime/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-lime">
-              <IconStar className="size-4" />
-              4.8 / 5 from 115+ Google reviews &middot; Trek &amp; Scott dealer
-            </span>
-          </FadeUp>
-          <FadeUp delay={0.08}>
             <h1 className="mt-5 font-display text-5xl sm:text-6xl lg:text-[4.2rem] xl:text-6xl font-bold uppercase leading-[0.98] tracking-tight text-white">
-              From first rides to race day, we've got your bike covered.
+              From first rides to race day, we've got you covered
             </h1>
           </FadeUp>
           <FadeUp delay={0.15}>
             <p className="mt-5 max-w-xl text-lg sm:text-xl leading-relaxed text-white/80">
-              Honest advice and expert care for every bike. Authorised Trek and Scott dealer,
-              servicing every brand.
+              Advice and expert care for every bike. Authorised Trek and Scott dealer. We service
+              every brand.
             </p>
           </FadeUp>
           <FadeUp delay={0.22}>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <PrimaryButton href={waLink("Hi Dunkeld Cycles, I'd like to book my bike in for a service.")}>
+              <PrimaryButton href={HUBTIGER_BOOKING_URL}>
                 Book a Service
               </PrimaryButton>
               <SecondaryButton href={`tel:${PHONE}`} icon={IconPhone} external={false}>
@@ -426,14 +420,14 @@ function FeaturedReview() {
         <FadeUp>
           <div className="flex items-center justify-center gap-1.5 text-lime mb-5" aria-label="Five star Google review">
             {Array.from({ length: 5 }).map((_, i) => <IconStar key={i} className="size-5" />)}
-            <span className="ml-2 text-sm font-semibold text-white/60 uppercase tracking-wider">4.8 &middot; 115+ Google reviews</span>
+            <span className="ml-2 text-sm font-semibold text-white/60 uppercase tracking-wider">4.8 &middot; 117+ Google reviews</span>
           </div>
           <blockquote className="font-display text-2xl sm:text-3xl lg:text-4xl uppercase leading-[1.15] tracking-wide text-white">
             "He saved my day, my Race to the Sun and my marriage. Thanks William. You are a legend."
           </blockquote>
-          <p className="mt-4 text-base text-white/55">Nasr Gie &mdash; Google Review</p>
+          <p className="mt-4 text-base text-white/55">Nasr Gie</p>
           <div className="mt-8">
-            <PrimaryButton href={waLink("Hi Dunkeld Cycles, I'd like to book my bike in for a service.")}>
+            <PrimaryButton href={HUBTIGER_BOOKING_URL}>
               Book Your Bike In
             </PrimaryButton>
           </div>
@@ -456,11 +450,10 @@ function AboutUs() {
                 Built on relationships,<br />not just repairs
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
-                Dunkeld Cycles has been Johannesburg's go-to bike shop for close to twenty years:
-                fitting riders to the right bike, giving honest advice, and building relationships
-                that start with a first name. We're an authorised Trek and Scott dealer for new
-                bikes, but the workshop services every brand that rolls through the door, from a
-                child's first bicycle to a carbon race machine.
+                Dunkeld Cycles has been Johannesburg's go-to bike shop for close to twenty years.
+                We're an authorised Trek and Scott dealer for new bikes, but the workshop services
+                every brand that rolls through the door, from a child's first bicycle to a carbon
+                race machine.
               </p>
               <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/80">
                 Looking for something specific that is not on the floor? The team can source any
@@ -515,12 +508,20 @@ function AboutUs() {
             <FadeUp delay={0.08}>
               <span className="font-display text-sm uppercase tracking-[0.3em] text-lime">A Note From William</span>
               <p className="mt-5 rounded-xl border-l-4 border-lime bg-white/5 px-6 py-5 font-display text-xl sm:text-2xl leading-snug text-white">
-                "I've spent close to twenty years getting Johannesburg riders back on the road,
-                from first-time commuters to Ironman racers, mom, dad and the kids and everyone's
-                Sunday-morning kids. Come say hi. We'll look after your bike like it's our own."
+                "I've spent close to twenty years getting Johannesburg riders on the road,
+                from first-time commuters to racing snakes. Come say hi. We'll look after your
+                bike like it's our own."
               </p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
-                The team is hands-on, committed, and goes out of their way for whatever your bike
+                William has been riding competitively since a very young age, building a
+                successful career as a professional road and track cyclist. After an injury
+                forced him to retire from racing, he channelled his lifelong passion for cycling
+                into helping others. Today, he combines his extensive experience and technical
+                expertise to provide exceptional bike servicing and support, ensuring every rider
+                and every bike performs at its best.
+              </p>
+              <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/80">
+                The team is hands-on, committed, and go out of their way for whatever your bike
                 specifically needs. No cookie-cutter service, no shortcuts.
               </p>
               <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/80">
@@ -580,13 +581,13 @@ function Workshop() {
             Our Workshop
           </h2>
           <p className="mt-3 max-w-2xl text-xl sm:text-2xl font-display uppercase tracking-wide text-white/90">
-            Know exactly what your bike needs, and why
+            Knows exactly what you need
           </p>
           <p className="mt-4 max-w-xl text-lg text-white/75">
             Every bike gets a hands-on assessment from an experienced mechanic, so you know
             exactly what it needs, and the cost, before any work begins. A quick tune-up or a full
-            rebuild, you will know what's happening. And once the work's done, every bike gets a
-            test ride before it's handed back, so you leave knowing it's ready.
+            rebuild, you will know what's happening. Every bike gets a quality check before you
+            get your bike back.
           </p>
         </FadeUp>
 
@@ -647,12 +648,12 @@ function Workshop() {
             <p className="text-base text-white/75">Pickup &amp; delivery available (cost applies).</p>
           </div>
           <div className="rounded-xl border border-white/10 bg-white/5 px-5 py-4">
-            <p className="text-base text-white/75">Also on offer: trainer service with Ruan, and trade-in facilitation.</p>
+            <p className="text-base text-white/75">Also on offer: trainer service with <a href="tel:+27825697634" className="underline hover:text-lime transition-colors">Ruan</a>, and trade-in facilitation.</p>
           </div>
         </FadeUp>
 
         <FadeUp delay={0.15} className="mt-10 flex justify-center">
-          <PrimaryButton href={waLink("Hi Dunkeld Cycles, I'd like to book my bike in for a service.")}>
+          <PrimaryButton href={HUBTIGER_BOOKING_URL}>
             Book Your Bike In
           </PrimaryButton>
         </FadeUp>
@@ -670,7 +671,7 @@ function BikeFit() {
           <FadeUp>
             <span className="font-display text-sm uppercase tracking-[0.3em] text-lime">Bike Fitting</span>
             <h2 className="mt-3 font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold uppercase leading-[1.02] text-white">
-              Your perfect position,<br />dialled in.
+              Your perfect position,<br />dialled in
             </h2>
             <div className="mt-6 group overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_56px_rgba(0,0,0,0.45)] sm:max-w-[50%] sm:mx-auto lg:max-w-none lg:mx-0">
               <img src={img('cycle-it.JPG')} alt="Professional bike fitting session at Dunkeld Cycles" className="w-full aspect-[1/1] object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -679,7 +680,7 @@ function BikeFit() {
 
           <FadeUp delay={0.1}>
             <p className="text-lg leading-relaxed text-white/80">
-              A proper bike fit changes everything. Less pain, more power, and the kind of comfort that lets you ride longer and harder. Dunkeld Cycles partners with <a href="https://cycleit.co.za/" target="_blank" rel="noopener noreferrer" className="underline hover:text-lime transition-colors">Cycle-It Service and Fitting</a> to deliver professional bike fitting right here in the shop.
+              A proper bike fit changes everything. Less pain, more power, and the kind of comfort that lets you ride longer and harder. Dunkeld Cycles partners with <a href="https://cycleit.co.za/" target="_blank" rel="noopener noreferrer" className="underline hover:text-lime transition-colors">Cycle-It Service and Fitting</a> to offer professional bike fitting conveniently in store.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-white/80">
               Whether you have just bought a new bike or want to get more out of the one you ride, a fit session is often the best upgrade you can make.
@@ -726,7 +727,7 @@ function GearAccessories() {
             Everything under one roof
           </h2>
           <p className="mt-4 max-w-xl text-lg text-white/75">
-            Helmets, shoes, bike racks, clothing, bags, chain lube, sealant, nutrition, race-day fuel and everything in between. If it goes on the bike or on the rider, it is here.
+            Helmets, shoes, bike racks, clothing, bags, chain lube, sealant, nutrition, race-day fuel and everything in between. If it goes on the bike or on the rider, it is available.
           </p>
         </FadeUp>
 
@@ -766,7 +767,7 @@ function OurBrands() {
             New bikes, from names you trust
           </h2>
           <p className="mt-4 max-w-xl text-lg text-white/75">
-            Authorised Trek and Scott dealer, plus Rapha apparel in store. Walk in unsure, walk
+            Authorised Trek and Scott dealer, plus Rapha apparel in store. Walk in unsure, ride
             out on the right bike for you.
           </p>
         </FadeUp>
@@ -792,11 +793,11 @@ function OurBrands() {
 // ─── Why Riders Choose Us ────────────────────────────────────────────────────
 const WHY_CHOOSE_US = [
   'Qualified, experienced mechanics',
-  'Honest advice, no unnecessary repairs',
-  'Fast, same-day turnaround',
+  'Practical advice, no unnecessary repairs',
   'Premium brands, every discipline serviced',
-  'Personal service, first names always',
+  'Personal service',
   'Family-owned and run since 2006',
+  'A combined 205 years of workshop experience',
 ]
 
 function WhyChooseUs() {
@@ -832,9 +833,9 @@ function WhyChooseUs() {
 // ─── How It Works ────────────────────────────────────────────────────────────
 const HOW_IT_WORKS_STEPS = [
   { n: '01', title: 'Book In', text: 'Message us on WhatsApp or call to lock in a slot.' },
-  { n: '02', title: 'We Assess', text: 'A mechanic inspects your bike and works out exactly what it needs.' },
+  { n: '02', title: 'We Assess', text: 'A mechanic inspects your bike and we assess exactly what is needed.' },
   { n: '03', title: 'We Contact You', text: "We message before any extra work, so there's never a surprise on collection." },
-  { n: '04', title: 'Service & Test Ride', text: 'The work gets done, then every bike is test ridden before it comes back to you.' },
+  { n: '04', title: 'Service & Quality Check', text: 'The work gets done, then every bike is quality checked before you get your bike back.' },
   { n: '05', title: 'Collect & Ride', text: "We'll message you the moment it's ready to collect." },
 ]
 
@@ -866,7 +867,7 @@ function HowItWorks() {
         </motion.div>
 
         <FadeUp delay={0.1} className="mt-10 flex justify-center">
-          <PrimaryButton href={waLink("Hi Dunkeld Cycles, I'd like to book my bike in for a service.")}>
+          <PrimaryButton href={HUBTIGER_BOOKING_URL}>
             Ready To Get Back On Your Bike? Book A Service
           </PrimaryButton>
         </FadeUp>
@@ -890,13 +891,13 @@ function CoffeeBar() {
           <FadeUp delay={0.1}>
             <span className="font-display text-sm uppercase tracking-[0.3em] text-[#102008]">The Coffee Bar</span>
             <h2 className="mt-3 font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold uppercase leading-[1.02] text-[#102008]">
-              Grab a coffee.<br />Stay a while.
+              Grab a coffee<br />Stay a while
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-[#102008]/80">
               Drop your bike off, or just drop in. Grab a coffee at the counter, find a seat, and enjoy the kind of conversations that only happen when riders get together.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-[#102008]/80">
-              We're a bike shop with a quiet coffee corner, not a busy coffee shop, so swap ride stories, plan the next route, or just take a break from Jan Smuts.
+              We're a bike shop with a quiet coffee corner, not a busy coffee shop with a bike corner. So swap ride stories, plan the next route, or just take a break from Jan Smuts Avenue.
             </p>
           </FadeUp>
         </div>
@@ -931,9 +932,6 @@ function SocialProof() {
           <h2 className="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl font-bold uppercase leading-[1.02] lg:whitespace-nowrap text-white">
             Every review tells the same story
           </h2>
-          <p className="mt-4 max-w-xl text-lg text-white/75">
-            Riders leave feeling like someone actually has their back.
-          </p>
         </FadeUp>
 
         <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-5">
@@ -1003,10 +1001,10 @@ function Team() {
               </h2>
               <div className="mt-5 space-y-4 text-lg leading-relaxed text-white/80">
                 <p>
-                  Behind every 5-star review is a crew of expert mechanics, not just one name on the door. Each one brings their own experience to the workbench, and gets to know your bike and how you ride it.
+                  Behind every 5-star review is a crew of expert mechanics, not just a company name on the door. Each one brings their own experience to the workbench, and gets to know your bike and how you ride it.
                 </p>
                 <p>
-                  Whoever's hands your bike is in, you'll get a first name, a straight answer, and a WhatsApp update mid-service, so you always know exactly what is happening and why.
+                  Whoever works on your bike, you'll get a straight answer and updates, so you always know exactly what is happening and why.
                 </p>
               </div>
             </FadeUp>
@@ -1036,12 +1034,12 @@ function EmailCapture() {
     <section className="relative bg-[#111111] py-16 sm:py-20">
       <div className="mx-auto max-w-[480px] px-6 sm:px-8 text-center">
         <FadeUp>
-          <span className="font-display text-sm uppercase tracking-[0.3em] text-lime">Free From William</span>
+          <span className="font-display text-sm uppercase tracking-[0.3em] text-lime">Free From Cam</span>
           <h2 className="mt-3 font-display text-4xl sm:text-5xl font-bold uppercase leading-[1.05] text-white">
-            William's Pre-Race Checklist
+            Cam's Corner
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-white/75">
-            The exact checklist William runs through before every race-day service. What to check, service and pack the week before 94.7, Ironman 70.3 or Race to the Sun. No spam. Just the list.
+            Cam is our resident coach, and this is the exact race-day checklist he runs through with riders before every big event. What to check, service and pack the week before 94.7, Ironman 70.3 or Race to the Sun. No spam. Just the list.
           </p>
         </FadeUp>
         <FadeUp delay={0.1}>
@@ -1064,7 +1062,7 @@ function EmailCapture() {
                 <PrimaryButton onClick={handleSubmit} className="w-full justify-center mt-1">
                   Send Me The Checklist
                 </PrimaryButton>
-                <p className="text-sm text-white/40">Your details go to Dunkeld Cycles only, for race-season tips. Unsubscribe anytime.</p>
+                <p className="text-sm text-white/40">Your details go to Dunkeld Cycles only, for updates and tips. Unsubscribe anytime.</p>
               </motion.form>
             )}
           </AnimatePresence>
@@ -1084,7 +1082,7 @@ function Contact() {
         <FadeUp>
           <span className="font-display text-sm uppercase tracking-[0.3em] text-lime">Find Us</span>
           <h2 className="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl font-bold uppercase leading-[1.02] lg:whitespace-nowrap text-white">
-            Bring your bike in. We'll take it from here.
+            Bring your bike in, we'll take it from there
           </h2>
           <p className="mt-4 max-w-xl text-lg text-white/75">
             Dunkeld West Shopping Centre, corner of Bompas and Jan Smuts. Parking at the back. Message William directly, call us, or drop in during opening hours. Proudly serving Dunkeld, Rosebank, Sandton, Randburg, Parkhurst and Bryanston.
@@ -1124,7 +1122,7 @@ function Contact() {
               </div>
               <div className="mt-1 flex flex-col sm:flex-row gap-3">
                 <PrimaryButton href={waLink("Hi Dunkeld Cycles, I'd like to book my bike in.")}>
-                  Book on WhatsApp
+                  WhatsApp Us
                 </PrimaryButton>
                 <a
                   href={`tel:${PHONE}`}
@@ -1256,6 +1254,7 @@ function Footer() {
               Dunkeld West, Randburg, 2190<br />
               Johannesburg
             </p>
+            <img src={img('Stamp2.png')} alt="Jozi's Authentic Bike Shop, established 2006" className="mt-5 h-[100px] w-auto" />
           </div>
 
           <div>
@@ -1278,17 +1277,16 @@ function Footer() {
             </p>
             <div className="mt-4 flex items-center gap-1.5 text-lime" aria-label="4.8 star Google rating">
               {Array.from({ length: 5 }).map((_, i) => <IconStar key={i} className="size-4" />)}
-              <span className="ml-1 text-sm text-white/70">4.8 &middot; 115+ reviews</span>
+              <span className="ml-1 text-sm text-white/70">4.8 &middot; 117+ reviews</span>
             </div>
-            <div className="mt-4 flex items-center gap-3">
-              <a href="https://www.instagram.com/dunkeldcycles/" target="_blank" rel="noopener noreferrer" aria-label="Dunkeld Cycles on Instagram" className="flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full border border-white/20 text-white/70 hover:text-lime hover:border-lime/50 transition-colors">
-                <IconInstagram className="size-7" />
+            <div className="mt-5 flex items-center gap-4">
+              <a href="https://www.instagram.com/dunkeldcycles/" target="_blank" rel="noopener noreferrer" aria-label="Dunkeld Cycles on Instagram" className="flex items-center justify-center rounded-full border border-lime/40 text-lime hover:border-lime hover:bg-lime/10 transition-colors" style={{ height: '60px', width: '60px' }}>
+                <IconInstagram style={{ height: '26px', width: '26px' }} />
               </a>
-              <a href="https://www.facebook.com/dunkeldcycles/" target="_blank" rel="noopener noreferrer" aria-label="Dunkeld Cycles on Facebook" className="flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full border border-white/20 text-white/70 hover:text-lime hover:border-lime/50 transition-colors">
-                <IconFacebook className="size-7" />
+              <a href="https://www.facebook.com/dunkeldcycles/" target="_blank" rel="noopener noreferrer" aria-label="Dunkeld Cycles on Facebook" className="flex items-center justify-center rounded-full border border-lime/40 text-lime hover:border-lime hover:bg-lime/10 transition-colors" style={{ height: '60px', width: '60px' }}>
+                <IconFacebook style={{ height: '26px', width: '26px' }} />
               </a>
             </div>
-            <img src={img('Stamp2.png')} alt="Jozi's Authentic Bike Shop, established 2006" className="mt-5 h-[80px] w-auto" />
           </div>
         </div>
 
