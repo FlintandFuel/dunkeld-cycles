@@ -573,6 +573,12 @@ const SERVICE_CATEGORIES = [
       'Courier Service: local collection and delivery of your bike',
     ],
   },
+  {
+    items: [
+      <>Indoor bike trainer service with <a href="tel:+27825697634" className="underline hover:text-lime transition-colors">Ruan</a>, and trade-in facilitation.</>,
+      'Pickup & delivery available (cost applies).',
+    ],
+  },
 ]
 
 function Workshop() {
@@ -625,13 +631,13 @@ function Workshop() {
           {/* Category cards — each animates in independently as it scrolls into view */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {SERVICE_CATEGORIES.map((category, i) => (
-              <FadeUp key={category.title} delay={i < 2 ? i * 0.08 : 0} className={category.items.length === 1 ? 'sm:col-span-1' : ''}>
+              <FadeUp key={category.title || i} delay={i < 2 ? i * 0.08 : 0} className={category.items.length === 1 ? 'sm:col-span-1' : ''}>
                 <SpotlightCard className="h-full">
                   <div className="h-full bg-white/[0.06] p-7 sm:p-8 rounded-2xl">
-                    <h3 className="font-display text-2xl uppercase tracking-wide text-white">{category.title}</h3>
-                    <ul className="mt-3 space-y-1.5 text-base leading-relaxed text-white/70">
-                      {category.items.map((item) => (
-                        <li key={item} className="flex gap-2">
+                    {category.title && <h3 className="font-display text-2xl uppercase tracking-wide text-white">{category.title}</h3>}
+                    <ul className={`space-y-1.5 text-base leading-relaxed text-white/70 ${category.title ? 'mt-3' : ''}`}>
+                      {category.items.map((item, idx) => (
+                        <li key={idx} className="flex gap-2">
                           <span className="text-lime">&bull;</span>
                           <span>{item}</span>
                         </li>
@@ -644,16 +650,10 @@ function Workshop() {
           </div>
         </div>
 
-        <FadeUp delay={0.1} className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center sm:text-left">
-          <div className="rounded-xl border border-white/10 bg-white/5 px-5 py-4">
-            <p className="text-base text-white/75">Every service ends with a test ride, our two-step quality check before your bike comes back to you.</p>
-          </div>
-          <div className="rounded-xl border border-white/10 bg-white/5 px-5 py-4">
-            <p className="text-base text-white/75">Pickup &amp; delivery available (cost applies).</p>
-          </div>
-          <div className="rounded-xl border border-white/10 bg-white/5 px-5 py-4">
-            <p className="text-base text-white/75">Also on offer: trainer service with <a href="tel:+27825697634" className="underline hover:text-lime transition-colors">Ruan</a>, and trade-in facilitation.</p>
-          </div>
+        <FadeUp delay={0.1} className="mt-10">
+          <p className="max-w-2xl text-lg leading-relaxed text-white/75">
+            Every service ends with a test ride, our two-step quality check before your bike is ready for collection.
+          </p>
         </FadeUp>
 
         <FadeUp delay={0.15} className="mt-10 flex justify-center">
@@ -897,10 +897,10 @@ function CoffeeBar() {
             <h2 className="mt-3 font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold uppercase leading-[1.02] text-[#102008]">
               Grab a coffee<br />Stay a while
             </h2>
-            <p className="mt-5 text-lg leading-relaxed text-[#102008]/80">
+            <p className="mt-5 text-lg font-medium leading-relaxed text-[#102008]/80">
               Drop your bike off, or just drop in. Grab a coffee at the counter, find a seat, and enjoy the kind of conversations that only happen when riders get together.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-[#102008]/80">
+            <p className="mt-4 text-lg font-medium leading-relaxed text-[#102008]/80">
               We're a bike shop with a quiet coffee corner, not a busy coffee shop with a bike corner. So swap ride stories, plan the next route, or just take a break from Jan Smuts Avenue.
             </p>
           </FadeUp>
@@ -1089,7 +1089,7 @@ function Contact() {
             Bring your bike in, we'll take it from there
           </h2>
           <p className="mt-4 max-w-xl text-lg text-white/75">
-            Dunkeld West Shopping Centre, corner of Bompas and Jan Smuts. Parking at the back. Message William directly, call us, or drop in during opening hours. Proudly serving Dunkeld, Rosebank, Sandton, Randburg, Parkhurst and Bryanston.
+            Dunkeld West Shopping Centre, corner of Bompas and Jan Smuts. Parking at the back. Message William directly, call us, or drop in during business hours. Proudly serving Dunkeld, Rosebank, Sandton, Randburg, Parkhurst and Bryanston.
           </p>
         </FadeUp>
 
@@ -1113,7 +1113,7 @@ function Contact() {
               <div className="flex gap-4">
                 <IconClock className="size-6 shrink-0 text-lime mt-0.5" />
                 <div>
-                  <p className="font-display text-xl uppercase tracking-wide text-white">Opening Hours</p>
+                  <p className="font-display text-xl uppercase tracking-wide text-white">Hours</p>
                   <p className="mt-1 text-base text-white/70">
                     Monday to Friday: 07:30 &ndash; 17:00<br />
                     Saturday: 09:00 &ndash; 13:00<br />
@@ -1184,7 +1184,7 @@ const FAQS = [
   },
   {
     q: 'How much does a bike service cost?',
-    a: <>Pricing depends on the service type and parts required. The team will give you an honest assessment of what your bike actually needs before any work starts, and they will never recommend something it does not. Call <a href={`tel:${PHONE}`} className="underline hover:text-lime transition-colors">011 341 0627</a> or WhatsApp for a quote.</>,
+    a: <>Pricing depends on the service type and parts required. The team will give you an honest assessment of what your bike actually needs before any work starts, and they will never recommend something it does not. Call <a href={`tel:${PHONE}`} className="underline hover:text-lime transition-colors">011 341 0627</a> or <a href={waLink("Hi Dunkeld Cycles, I'd like a quote.")} target="_blank" rel="noopener noreferrer" className="underline hover:text-lime transition-colors">WhatsApp</a> for a quote.</>,
   },
   {
     q: 'Is there on-site parking?',
@@ -1277,7 +1277,7 @@ function Footer() {
           <div>
             <img src={img('logo-main.png')} alt="Dunkeld Cycles logo" className="h-[60px] w-auto" />
             <p className="mt-4 max-w-xs text-base leading-relaxed text-white/65">
-              Johannesburg's most personal independent bike shop. Trek and Scott dealer, full-service workshop, first names always.
+              Johannesburg's most personal independent bike shop. Trek and Scott dealer, full-service workshop.
             </p>
             <div className="mt-4 flex items-center gap-1.5 text-lime" aria-label="4.8 star Google rating">
               {Array.from({ length: 5 }).map((_, i) => <IconStar key={i} className="size-4" />)}
