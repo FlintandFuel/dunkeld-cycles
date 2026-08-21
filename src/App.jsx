@@ -651,7 +651,7 @@ function Workshop() {
         </div>
 
         <FadeUp delay={0.1} className="mt-10">
-          <p className="max-w-2xl text-lg leading-relaxed text-white/75">
+          <p className="text-lg leading-relaxed text-white/75 lg:whitespace-nowrap">
             Every service ends with a test ride, our two-step quality check before your bike is ready for collection.
           </p>
         </FadeUp>
