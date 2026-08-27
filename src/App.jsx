@@ -787,10 +787,10 @@ function OurBrands() {
 
         <FadeUp delay={0.1}>
           <div className="mt-6 flex flex-wrap items-center gap-8">
-            <div className="h-[225px] w-[225px] flex items-center justify-center">
+            <div className="h-[70px] w-[225px] flex items-center justify-center">
               <img src={img('Trek_Logo.png')} alt="Trek" className="max-h-full max-w-full object-contain brightness-0 invert" />
             </div>
-            <div className="h-[225px] w-[225px] flex items-center justify-center">
+            <div className="h-[70px] w-[225px] flex items-center justify-center">
               <img src={img('scott-logo.png')} alt="Scott" className="max-h-full max-w-full object-contain brightness-0 invert" />
             </div>
           </div>
