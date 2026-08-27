@@ -361,7 +361,8 @@ function Hero() {
           <FadeUp delay={0.28}>
             <div className="mt-7 flex flex-col sm:flex-row sm:items-center gap-4">
               <p className="text-sm uppercase tracking-[0.2em] text-white/45">
-                No. 10, Dunkeld West Shopping Centre &middot; 011 341 0627
+                No. 10, Dunkeld West Shopping Centre<br />
+                011 341 0627
               </p>
               <div className="flex items-center gap-3">
                 <a href="https://www.instagram.com/dunkeldcycles/" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram" className="flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full border border-white/30 text-white hover:text-lime hover:border-lime/50 transition-colors">
@@ -510,13 +511,8 @@ function AboutUs() {
 
           <div>
             <FadeUp delay={0.08}>
-              <span className="font-display text-sm uppercase tracking-[0.3em] text-lime">A Note From William</span>
-              <p className="mt-5 rounded-xl border-l-4 border-lime bg-white/5 px-6 py-5 font-display text-xl sm:text-2xl leading-snug text-white">
-                "I've spent close to twenty years getting Johannesburg riders on the road,
-                from first-time commuters to racing snakes. Come say hi. We'll look after your
-                bike like it's our own."
-              </p>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
+              <span className="font-display text-sm uppercase tracking-[0.3em] text-lime">Meet William</span>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
                 William has been riding competitively since a very young age, building a
                 successful career as a professional road and track cyclist. After an injury
                 forced him to retire from racing, he channelled his lifelong passion for cycling
@@ -529,7 +525,7 @@ function AboutUs() {
                 specifically needs. No cookie-cutter service, no shortcuts.
               </p>
               <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/80">
-                Fancy a ride? Join the Friday morning club ride, 5am from the shop, open to all riders, no drop.
+                Fancy a ride? Join the Friday morning club ride, 5am from the shop, open to all riders, no drop. Contact William to join the WhatsApp Ride Group.
               </p>
             </FadeUp>
           </div>
@@ -575,7 +571,8 @@ const SERVICE_CATEGORIES = [
   },
   {
     items: [
-      <>Indoor bike trainer service with <a href="tel:+27825697634" className="underline hover:text-lime transition-colors">Ruan</a>, and trade-in facilitation.</>,
+      <>Indoor bike trainer service with <a href="tel:+27825697634" className="underline hover:text-lime transition-colors">Ruan</a>.</>,
+      'Trade-in facilitation.',
       'Pickup & delivery available (cost applies).',
     ],
   },
@@ -595,7 +592,7 @@ function Workshop() {
           </p>
           <p className="mt-4 max-w-xl text-lg text-white/75">
             Every bike gets a hands-on assessment from an experienced mechanic, so you know
-            exactly what it needs, and the cost, before any work begins. A quick tune-up or a full
+            exactly what is needed, and the cost, before any work begins. A quick tune-up or a full
             rebuild, you will know what's happening. Every bike gets a quality check before you
             get your bike back.
           </p>
@@ -761,6 +758,15 @@ function GearAccessories() {
 }
 
 // ─── Our Brands ──────────────────────────────────────────────────────────────
+const GEAR_BRANDS = [
+  { src: 'thule-logo.svg', alt: 'Thule' },
+  { src: 'wahoo-logo.png', alt: 'Wahoo' },
+  { src: 'garmin-logo.png', alt: 'Garmin' },
+  { src: 'tririg-logo.png', alt: 'TriRig' },
+  { src: 'rapha-logo.png', alt: 'Rapha' },
+  { src: 'oakley-logo.png', alt: 'Oakley' },
+]
+
 function OurBrands() {
   return (
     <section className="relative bg-[#111111] py-16 sm:py-24">
@@ -771,16 +777,14 @@ function OurBrands() {
             New bikes, from names you trust
           </h2>
           <p className="mt-4 max-w-xl text-lg text-white/75">
-            Authorised Trek and Scott dealer, plus Rapha apparel in store. Walk in unsure, ride
-            out on the right bike for you.
+            Authorised Trek and Scott dealer. Walk in unsure, ride out on the right bike for you.
           </p>
         </FadeUp>
 
         <FadeUp delay={0.1}>
-          <div className="mt-10 flex flex-wrap items-center gap-x-12 gap-y-8">
-            <img src={img('Trek_Logo.png')} alt="Trek" className="h-[90px] w-auto brightness-0 invert" />
-            <img src={img('scott-logo.png')} alt="Scott" className="h-[90px] w-auto brightness-0 invert" />
-            <img src={img('rapha-logo.png')} alt="Rapha" className="h-[60px] w-auto" />
+          <div className="mt-10 flex flex-wrap items-center gap-x-16 gap-y-10">
+            <img src={img('Trek_Logo.png')} alt="Trek" className="h-[360px] w-auto brightness-0 invert" />
+            <img src={img('scott-logo.png')} alt="Scott" className="h-[360px] w-auto brightness-0 invert" />
           </div>
         </FadeUp>
 
@@ -789,6 +793,23 @@ function OurBrands() {
             Enquire About A Bike
           </PrimaryButton>
         </FadeUp>
+
+        <div className="mt-16 lg:mt-20 border-t border-white/10 pt-14 lg:pt-16">
+          <FadeUp>
+            <span className="font-display text-sm uppercase tracking-[0.3em] text-lime">Gear</span>
+            <h3 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase leading-[1.02] text-white">
+              Brands to enhance your ride
+            </h3>
+          </FadeUp>
+
+          <FadeUp delay={0.1}>
+            <div className="mt-10 flex flex-wrap items-center gap-x-12 gap-y-8">
+              {GEAR_BRANDS.map((brand) => (
+                <img key={brand.alt} src={img(brand.src)} alt={brand.alt} className="h-[50px] w-auto brightness-0 invert" />
+              ))}
+            </div>
+          </FadeUp>
+        </div>
       </div>
     </section>
   )
@@ -800,8 +821,8 @@ const WHY_CHOOSE_US = [
   'Practical advice, no unnecessary repairs',
   'Premium brands, every discipline serviced',
   'Personal service',
-  'Family-owned and run since 2006',
-  'A combined 205 years of workshop experience',
+  'Family-owned and run since 2019',
+  'A combined 205 years of cycling and workshop experience',
 ]
 
 function WhyChooseUs() {
@@ -836,10 +857,20 @@ function WhyChooseUs() {
 
 // ─── How It Works ────────────────────────────────────────────────────────────
 const HOW_IT_WORKS_STEPS = [
-  { n: '01', title: 'Book In', text: 'Message us on WhatsApp or call to lock in a slot.' },
+  {
+    n: '01',
+    title: 'Book In',
+    text: (
+      <>
+        <a href={HUBTIGER_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="text-lime underline hover:text-white transition-colors">Click here to book</a>
+        <br />
+        Message us on WhatsApp or call to lock in a slot.
+      </>
+    ),
+  },
   { n: '02', title: 'We Assess', text: 'A mechanic inspects your bike and we assess exactly what is needed.' },
   { n: '03', title: 'We Contact You', text: "We message before any extra work, so there's never a surprise on collection." },
-  { n: '04', title: 'Service & Quality Check', text: 'The work gets done, then every bike is quality checked before you get your bike back.' },
+  { n: '04', title: 'Service & Quality Check', text: 'The work gets done, then every bike is quality checked.' },
   { n: '05', title: 'Collect & Ride', text: "We'll message you the moment it's ready to collect." },
 ]
 
@@ -1020,7 +1051,8 @@ function Team() {
   )
 }
 
-// ─── Email capture ───────────────────────────────────────────────────────────
+// ─── Email capture (Cam's Corner) — not currently rendered, see App() below ──
+// eslint-disable-next-line no-unused-vars
 function EmailCapture() {
   const [status, setStatus] = useState('idle')
   const [name, setName] = useState('')
@@ -1164,19 +1196,19 @@ function Contact() {
 const FAQS = [
   {
     q: 'How long does a bike service take and can I wait in-store?',
-    a: 'Most basic services and tune-ups are turned around the same day, often while you wait or browse the shop. Full services and bigger jobs are usually ready within one to two days, and the team will SMS or WhatsApp you the moment your bike is ready to collect.',
+    a: 'Most small services like punctures, bike washes and lube can be turned around the same day, just ask the team. Full services and bigger jobs are usually ready within one to two days, and the team will SMS or WhatsApp you the moment your bike is ready to collect.',
   },
   {
     q: 'Do I need to book in advance?',
-    a: 'Booking ahead on WhatsApp gets you the best slot, especially in the weeks before 94.7 or Ironman 70.3. Same-day turnaround is often possible too, depending on the day\'s schedule, so message the team directly and they\'ll tell you what\'s realistic.',
+    a: <>Booking ahead on WhatsApp gets you the best slot, especially in the weeks before 94.7 or Ironman 70.3. Same-day turnaround is often possible too, depending on the day's schedule, so message the team directly and they'll tell you what's realistic. For specialist hub servicing, <a href={HUBTIGER_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="underline hover:text-lime transition-colors">click here to book</a>.</>,
   },
   {
     q: 'Do you service all bike brands, or only Trek and Scott?',
-    a: 'Dunkeld Cycles is an authorised Trek and Scott dealer, but the workshop services every brand and discipline: road, MTB, gravel, e-bike and triathlon machines all get the same level of care. For specialist hub servicing, we can also point you to Hubtiger, where you can book directly.',
+    a: 'Dunkeld Cycles is an authorised Trek and Scott dealer, but the workshop services every brand and discipline: road, MTB, gravel, e-bike and triathlon machines all get the same level of care.',
   },
   {
-    q: 'What is included in a full service versus a basic tune-up?',
-    a: 'A basic tune-up covers gear and brake adjustment, a safety check and a clean: ideal for keeping a regularly ridden bike honest between bigger services. A full service strips, inspects, cleans and rebuilds the drivetrain, brakes, headset and bearings, so the bike comes back feeling new. The team will tell you straight which one your bike actually needs, not which one costs more.',
+    q: 'What is included in a full service versus a standard service?',
+    a: 'A standard service covers gear and brake adjustment, a safety check and a clean: ideal for keeping a regularly ridden bike honest between bigger services. A full service strips, inspects, cleans and rebuilds the drivetrain, brakes, headset and bearings, so the bike comes back feeling new. The team will tell you straight which one your bike actually needs, not which one costs more.',
   },
   {
     q: 'Is Dunkeld Cycles the nearest Trek and Scott dealer to Sandton and Rosebank?',
@@ -1196,7 +1228,7 @@ const FAQS = [
   },
   {
     q: 'Is there somewhere to wait while my bike is being serviced?',
-    a: 'Yes. Dunkeld Cycles has an in-store coffee bar where you can grab a fresh coffee and hang out while the team works on your bike. It is a space to sit, chat, swap ride stories and take a break. You will get WhatsApp updates at every step of the service, so you always know what is happening.',
+    a: 'Yes. Dunkeld Cycles has an in-store coffee bar where you can grab a fresh coffee and hang out while the team works on your bike, depending on scope of work. It is a space to sit, chat, swap ride stories and take a break. You will get WhatsApp updates at every step of the service, so you always know what is happening.',
   },
   {
     q: 'Can Dunkeld Cycles source a bike brand that is not in the shop?',
@@ -1326,7 +1358,7 @@ function App() {
       <CoffeeBar />
       <SocialProof />
       <Team />
-      <EmailCapture />
+      {/* Cam's Corner (EmailCapture) removed for now — client wants to add more info about Cam before this goes back up */}
       <Contact />
       <Faq />
       <Footer />
