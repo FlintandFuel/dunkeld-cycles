@@ -468,8 +468,12 @@ function AboutUs() {
 
             <FadeUp delay={0.15}>
               <div className="mt-6 flex flex-wrap items-center gap-8">
-                <img src={img('Trek_Logo.png')} alt="Trek" className="h-[100px] w-auto brightness-0 invert" />
-                <img src={img('scott-logo.png')} alt="Scott" className="h-[100px] w-auto brightness-0 invert" />
+                <div className="h-[70px] w-[150px] flex items-center justify-start">
+                  <img src={img('Trek_Logo.png')} alt="Trek" className="max-h-full max-w-full object-contain brightness-0 invert" />
+                </div>
+                <div className="h-[70px] w-[150px] flex items-center justify-start">
+                  <img src={img('scott-logo.png')} alt="Scott" className="max-h-full max-w-full object-contain brightness-0 invert" />
+                </div>
               </div>
               <div className="mt-4">
                 <PrimaryButton href={waLink("Hi Dunkeld Cycles, I'm looking for a bike — can you help?")}>
@@ -783,8 +787,12 @@ function OurBrands() {
 
         <FadeUp delay={0.1}>
           <div className="mt-6 flex flex-wrap items-center gap-8">
-            <img src={img('Trek_Logo.png')} alt="Trek" className="h-[125px] sm:h-[175px] lg:h-[225px] w-auto brightness-0 invert" />
-            <img src={img('scott-logo.png')} alt="Scott" className="h-[125px] sm:h-[175px] lg:h-[225px] w-auto brightness-0 invert" />
+            <div className="h-[125px] w-[125px] sm:h-[175px] sm:w-[175px] lg:h-[225px] lg:w-[225px] flex items-center justify-center">
+              <img src={img('Trek_Logo.png')} alt="Trek" className="max-h-full max-w-full object-contain brightness-0 invert" />
+            </div>
+            <div className="h-[125px] w-[125px] sm:h-[175px] sm:w-[175px] lg:h-[225px] lg:w-[225px] flex items-center justify-center">
+              <img src={img('scott-logo.png')} alt="Scott" className="max-h-full max-w-full object-contain brightness-0 invert" />
+            </div>
           </div>
         </FadeUp>
 
