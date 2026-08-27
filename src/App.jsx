@@ -783,8 +783,8 @@ function OurBrands() {
 
         <FadeUp delay={0.1}>
           <div className="mt-6 flex flex-wrap items-center gap-8">
-            <img src={img('Trek_Logo.png')} alt="Trek" className="h-[100px] sm:h-[140px] lg:h-[180px] w-auto brightness-0 invert" />
-            <img src={img('scott-logo.png')} alt="Scott" className="h-[100px] sm:h-[140px] lg:h-[180px] w-auto brightness-0 invert" />
+            <img src={img('Trek_Logo.png')} alt="Trek" className="h-[125px] sm:h-[175px] lg:h-[225px] w-auto brightness-0 invert" />
+            <img src={img('scott-logo.png')} alt="Scott" className="h-[125px] sm:h-[175px] lg:h-[225px] w-auto brightness-0 invert" />
           </div>
         </FadeUp>
 
