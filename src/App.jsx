@@ -571,9 +571,9 @@ const SERVICE_CATEGORIES = [
   },
   {
     items: [
-      <>Indoor bike trainer service with <a href="tel:+27825697634" className="underline hover:text-lime transition-colors">Ruan</a>.</>,
-      'Trade-in facilitation.',
-      'Pickup & delivery available (cost applies).',
+      <>Indoor bike trainer service with <a href="tel:+27825697634" className="underline hover:text-lime transition-colors">Ruan</a></>,
+      'Trade-in facilitation',
+      'Pickup & delivery available (cost applies)',
     ],
   },
 ]
@@ -783,8 +783,8 @@ function OurBrands() {
 
         <FadeUp delay={0.1}>
           <div className="mt-10 flex flex-wrap items-center gap-x-16 gap-y-10">
-            <img src={img('Trek_Logo.png')} alt="Trek" className="h-[360px] w-auto brightness-0 invert" />
-            <img src={img('scott-logo.png')} alt="Scott" className="h-[360px] w-auto brightness-0 invert" />
+            <img src={img('Trek_Logo.png')} alt="Trek" className="h-[270px] w-auto brightness-0 invert" />
+            <img src={img('scott-logo.png')} alt="Scott" className="h-[270px] w-auto brightness-0 invert" />
           </div>
         </FadeUp>
 
@@ -805,7 +805,9 @@ function OurBrands() {
           <FadeUp delay={0.1}>
             <div className="mt-10 flex flex-wrap items-center gap-x-12 gap-y-8">
               {GEAR_BRANDS.map((brand) => (
-                <img key={brand.alt} src={img(brand.src)} alt={brand.alt} className="h-[50px] w-auto brightness-0 invert" />
+                <div key={brand.alt} className="h-14 w-32 flex items-center justify-center">
+                  <img src={img(brand.src)} alt={brand.alt} className="max-h-full max-w-full object-contain brightness-0 invert" />
+                </div>
               ))}
             </div>
           </FadeUp>
