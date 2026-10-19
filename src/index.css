@@ -26,3 +26,41 @@ body {
 .font-display {
   font-family: 'Barlow Condensed', ui-sans-serif, system-ui, sans-serif;
 }
+/* Blog post body (rendered Markdown). 18px, ~68ch measure, 1.7 line height. */
+.prose-post {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+}
+.prose-post > * + * { margin-top: 1.25em; }
+.prose-post h2 {
+  margin-top: 2em;
+  font-family: 'Barlow Condensed', ui-sans-serif, system-ui, sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #fff;
+}
+.prose-post h3 {
+  margin-top: 1.6em;
+  font-family: 'Barlow Condensed', ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+}
+.prose-post a { color: #73b845; text-decoration: underline; text-underline-offset: 3px; }
+.prose-post a:hover { color: #fff; }
+.prose-post strong { color: #fff; font-weight: 700; }
+.prose-post ul, .prose-post ol { padding-left: 1.4em; }
+.prose-post ul { list-style: disc; }
+.prose-post ol { list-style: decimal; }
+.prose-post li + li { margin-top: 0.6em; }
+.prose-post blockquote { border-left: 3px solid #73b845; padding-left: 1.1em; color: #fff; }
+.prose-post img { border-radius: 1rem; max-width: 100%; height: auto; }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #73b845;
+  outline-offset: 3px;
+}

@@ -1,0 +1,65 @@
+# Pages CMS configuration (https://pagescms.org)
+# Cameron logs in with GitHub, writes in a simple editor, and each post is committed as a Markdown file.
+media:
+  input: public/images/blog
+  output: /images/blog
+content:
+  - name: posts
+    label: Blog posts
+    type: collection
+    path: src/content/posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, date, published]
+      primary: title
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Publish date
+        type: date
+        required: true
+      - name: description
+        label: Short summary (for Google)
+        type: text
+        required: true
+        description: One or two sentences, about 150 to 160 characters. This is what shows under the title in Google results.
+        options:
+          maxlength: 160
+      - name: image
+        label: Featured image
+        type: image
+        required: true
+        description: 1600px wide, under 300 KB.
+      - name: image_alt
+        label: Image description
+        type: string
+        required: true
+        description: Describe the photo in one sentence, for screen readers and Google.
+      - name: author
+        label: Author
+        type: select
+        required: true
+        default: cameron-macnair
+        options:
+          values:
+            - value: cameron-macnair
+              label: Cameron MacNair
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: published
+        label: Published
+        type: boolean
+        default: true
+        description: Switch off to keep this post as a draft.
+      - name: body
+        label: Body
+        type: rich-text

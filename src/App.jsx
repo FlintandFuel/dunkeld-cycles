@@ -30,34 +30,38 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, useReducedMotion, AnimatePresence, useMotionValue, useTransform, useSpring, useMotionTemplate } from 'framer-motion'
 import './index.css'
+import { AUTHOR } from './lib/blog'
+import { BASE } from './lib/site'
+import { PATHS } from './lib/routes'
 
-const img = (filename) => `${import.meta.env.BASE_URL}images/${filename}`
+export const img = (filename) => `${BASE}images/${filename}`
 
 const WHATSAPP_NUMBER = '27810186912'
 const PHONE = '0113410627'
-const HUBTIGER_BOOKING_URL = 'https://bookings.hubtiger.com/bikes?shop=HUB.96D2C6B5A5484DDAAF1BE5618670D0AA60E5EE7213C748BEAF249FFF49BB704F.TIGER&lang=en'
+export const HUBTIGER_BOOKING_URL = 'https://bookings.hubtiger.com/bikes?shop=HUB.96D2C6B5A5484DDAAF1BE5618670D0AA60E5EE7213C748BEAF249FFF49BB704F.TIGER&lang=en'
 const waLink = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 
 const NAV_LINKS = [
   { label: 'About Us', href: '#about' },
   { label: 'Our Workshop', href: '#workshop' },
   { label: 'Reviews', href: '#reviews' },
+  { label: "Cam's Corner", href: PATHS.index, page: true },
   { label: 'The Team', href: '#team' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ]
 
 // ─── Motion presets ─────────────────────────────────────────────────────────
-const fadeUp = {
+export const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
 }
-const stagger = {
+export const stagger = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1 } },
 }
 
-function FadeUp({ children, delay = 0, className = '' }) {
+export function FadeUp({ children, delay = 0, className = '' }) {
   const reduced = useReducedMotion()
   return (
     <motion.div
@@ -134,7 +138,7 @@ function IconPhone(props) {
     </svg>
   )
 }
-function IconArrow(props) {
+export function IconArrow(props) {
   return (
     <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
       <path d="M4 10h12M11 5l5 5-5 5" />
@@ -169,7 +173,7 @@ function IconClock(props) {
     </svg>
   )
 }
-function IconInstagram(props) {
+export function IconInstagram(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true" {...props}>
       <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -194,9 +198,9 @@ function IconChevron(props) {
 }
 
 // ─── Buttons with neon border animation ─────────────────────────────────────
-function PrimaryButton({ href, onClick, children, className = '' }) {
+export function PrimaryButton({ href, onClick, children, className = '', external = true }) {
   const Tag = href ? 'a' : 'button'
-  const linkProps = href ? { href, target: '_blank', rel: 'noopener noreferrer' } : { onClick }
+  const linkProps = href ? { href, ...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {}) } : { onClick }
   return (
     <Tag
       {...linkProps}
@@ -212,7 +216,7 @@ function PrimaryButton({ href, onClick, children, className = '' }) {
   )
 }
 
-function SecondaryButton({ href, onClick, children, className = '', icon: Icon = IconWhatsApp, external = true }) {
+export function SecondaryButton({ href, onClick, children, className = '', icon: Icon = IconWhatsApp, external = true }) {
   const Tag = href ? 'a' : 'button'
   const linkProps = href ? { href, ...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {}) } : { onClick }
   return (
@@ -231,7 +235,9 @@ function SecondaryButton({ href, onClick, children, className = '', icon: Icon =
 }
 
 // ─── Nav ────────────────────────────────────────────────────────────────────
-function Nav() {
+export function Nav({ home = true }) {
+  // On blog pages, in-page anchors point back at the home page.
+  const linkHref = (l) => (l.page ? BASE + l.href : home ? l.href : BASE + l.href)
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -250,7 +256,7 @@ function Nav() {
   return (
     <header className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-[#111111]/92 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.4)]' : 'bg-transparent'}`}>
       <nav className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-6 sm:px-8 h-[72px] sm:h-20">
-        <a href="#top" className="shrink-0" aria-label="Dunkeld Cycles, home">
+        <a href={home ? '#top' : BASE} className="shrink-0" aria-label="Dunkeld Cycles, home">
           <img
             src={img('logo-main.png')}
             alt="Dunkeld Cycles"
@@ -258,9 +264,9 @@ function Nav() {
           />
         </a>
 
-        <div className="hidden min-[1100px]:flex items-center gap-7">
+        <div className="hidden min-[1100px]:flex items-center gap-4 min-[1200px]:gap-7">
           {NAV_LINKS.map((link) => (
-            <a key={link.label} href={link.href} className="font-display text-lg uppercase tracking-wider text-white/80 transition-colors hover:text-lime">
+            <a key={link.label} href={linkHref(link)} className="whitespace-nowrap font-display text-base min-[1200px]:text-lg uppercase tracking-wider text-white/80 transition-colors hover:text-lime">
               {link.label}
             </a>
           ))}
@@ -271,7 +277,7 @@ function Nav() {
             className="group relative inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-full bg-lime px-5 py-2.5 min-h-[40px] font-display text-sm font-semibold uppercase tracking-wide text-[#102008] transition-transform duration-200 hover:-translate-y-0.5"
           >
             <span className="absolute inset-x-0 top-0 h-px w-3/4 mx-auto bg-gradient-to-r from-transparent via-white/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true" />
-            <span className="relative">Book Your Bike In</span>
+            <span className="relative whitespace-nowrap">Book Your Bike In</span>
           </a>
         </div>
 
@@ -291,7 +297,7 @@ function Nav() {
             </div>
             <div className="flex flex-1 flex-col items-center justify-center gap-8 px-8">
               {NAV_LINKS.map((link) => (
-                <a key={link.label} href={link.href} onClick={() => setOpen(false)} className="font-display text-4xl uppercase tracking-wide text-white hover:text-lime transition-colors">{link.label}</a>
+                <a key={link.label} href={linkHref(link)} onClick={() => setOpen(false)} className="font-display text-4xl uppercase tracking-wide text-white hover:text-lime transition-colors">{link.label}</a>
               ))}
               <a href={HUBTIGER_BOOKING_URL} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="mt-4 inline-flex items-center justify-center min-h-[44px] rounded-full bg-lime px-8 py-4 font-display text-xl font-semibold uppercase tracking-wide text-[#102008]">
                 Book Your Bike In
@@ -767,7 +773,7 @@ const GEAR_BRANDS = [
   { src: 'wahoo-logo.png', alt: 'Wahoo' },
   { src: 'garmin-logo.png', alt: 'Garmin' },
   { src: 'tririg-logo.png', alt: 'TriRig' },
-  { src: 'rapha-logo.png', alt: 'Rapha' },
+  { src: 'ciovita-logo.png', alt: 'Ciovita' },
   { src: 'oakley-logo.png', alt: 'Oakley' },
 ]
 
@@ -814,7 +820,7 @@ function OurBrands() {
             <div className="mt-10 flex flex-wrap items-center gap-x-12 gap-y-8">
               {GEAR_BRANDS.map((brand) => (
                 <div key={brand.alt} className="h-[120px] w-[120px] flex items-center justify-center">
-                  <img src={img(brand.src)} alt={brand.alt} className="max-h-full max-w-full object-contain brightness-0 invert" />
+                  <img src={img(brand.src)} alt={brand.alt} className={`max-h-full max-w-full object-contain brightness-0 invert ${brand.className || ''}`} />
                 </div>
               ))}
             </div>
@@ -1010,6 +1016,56 @@ function SocialProof() {
             <IconArrow className="size-4 opacity-60 transition-transform duration-200 group-hover:translate-x-1" />
           </a>
         </FadeUp>
+      </div>
+    </section>
+  )
+}
+
+// ─── Cam's Corner (coach) ────────────────────────────────────────────────────
+function CamsCorner() {
+  return (
+    <section id="cams-corner" className="relative bg-charcoal py-16 sm:py-24">
+      <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
+          <FadeUp>
+            <div className="relative mx-auto max-w-[460px] lg:max-w-none">
+              <img
+                src={img(AUTHOR.photo)}
+                alt={AUTHOR.photoAlt}
+                width="1920"
+                height="1080"
+                loading="lazy"
+                className="w-full aspect-[4/5] object-cover object-[72%_50%] rounded-2xl border border-white/10 shadow-[0_24px_48px_rgba(0,0,0,0.45)]"
+              />
+              <span className="absolute -bottom-4 left-4 rounded-full bg-lime px-5 py-2 font-display text-base font-semibold uppercase tracking-wider text-[#102008]">
+                Cam&apos;s Corner
+              </span>
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={0.08}>
+            <span className="font-display text-sm uppercase tracking-[0.3em] text-lime">Coach &amp; Triathlete</span>
+            <h2 className="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl font-bold uppercase leading-[1.02] text-white">
+              Train With Cameron MacNair
+            </h2>
+            <div className="mt-5 space-y-4 text-lg leading-relaxed text-white/80">
+              {AUTHOR.bio.map((p) => <p key={p}>{p}</p>)}
+            </div>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <PrimaryButton href={BASE + PATHS.index} external={false}>Read His Training Articles</PrimaryButton>
+              <SecondaryButton href={AUTHOR.pinnacleUrl} icon={IconArrow}>Pinnacle Edge Coaching</SecondaryButton>
+              <a
+                href={AUTHOR.instagramUrl}
+                target="_blank"
+                rel="noopener"
+                aria-label="Cameron MacNair on Instagram"
+                className="flex size-12 items-center justify-center rounded-full border border-lime/40 text-lime transition-colors hover:border-lime hover:bg-lime/10"
+              >
+                <IconInstagram className="size-6" />
+              </a>
+            </div>
+          </FadeUp>
+        </div>
       </div>
     </section>
   )
@@ -1286,7 +1342,7 @@ function Faq() {
 }
 
 // ─── Footer ───────────────────────────────────────────────────────────────────
-function Footer() {
+export function Footer() {
   return (
     <footer className="relative bg-charcoal pt-14">
       <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
@@ -1367,8 +1423,8 @@ function App() {
       <HowItWorks />
       <CoffeeBar />
       <SocialProof />
+      <CamsCorner />
       <Team />
-      {/* Cam's Corner (EmailCapture) removed for now — client wants to add more info about Cam before this goes back up */}
       <Contact />
       <Faq />
       <Footer />
