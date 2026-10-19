@@ -8,7 +8,7 @@ author: cameron-macnair
 tags:
   - racing
   - bike care
-published: false
+published: true
 ---
 Race week is not the time to find out your bike has a problem. A short, calm check a few days before the start catches most of the things that end a day early.
 
