@@ -28,7 +28,7 @@ A one-page guide for Cameron. You do not need to touch the website code, and the
 
 ## Formatting your post
 
-- **Headings:** highlight a line of text and a small toolbar pops up. Use it to make the line a **Heading 2** for each section of your article, and a **Heading 3** for a sub-point under it. You can also start a line with  (for Heading 2) or  (for Heading 3).
+- **Headings:** highlight a line of text and a small toolbar pops up. Use it to make the line a **Heading 2** for each section of your article, and a **Heading 3** for a sub-point under it. You can also start a line with `## ` (for Heading 2) or `### ` (for Heading 3).
 - **Never use Heading 1.** Your post title is already the main heading on the page.
 - **Writing in Word or Google Docs?** Use Heading 2 and Heading 3 styles, then paste the text into the Body field. The headings, bold text and lists carry across. Have a quick look afterwards and fix anything that did not come across.
 - **Lists and bold:** highlight text to bold it, or turn lines into a bullet or numbered list from the same toolbar.
