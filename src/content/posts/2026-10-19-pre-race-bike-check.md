@@ -1,9 +1,11 @@
 ---
 title: The five-minute bike check before race day
 date: 2026-10-19
-description: A simple five-minute bike check to run in the week before a race, plus the signs that mean it is time to book a proper workshop service instead.
+description: A simple five-minute bike check to run in the week before a race,
+  plus the signs that mean it is time to book a proper workshop service instead.
 image: images/blog/pre-race-bike-check.webp
-image_alt: A triathlete in an aero position riding a time trial bike along a quiet road beneath mountains
+image_alt: A triathlete in an aero position riding a time trial bike along a
+  quiet road beneath mountains
 author: cameron-macnair
 tags:
   - racing
